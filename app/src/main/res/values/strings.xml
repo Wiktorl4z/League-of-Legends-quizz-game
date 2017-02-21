@@ -1,0 +1,16 @@
+<resources>
+    <string name="app_name">QuizApp</string>
+    <string name="question">What is the name of this champion?</string>
+    <string name="lissandra">Lissandra</string>
+    <string name="zed">Zed</string>
+    <string name="zyra">Zyra</string>
+    <string name="rengar">Rengar</string>
+    <string name="Jhin">Jhin</string>
+    <string name="Ammumu">Ammumu</string>
+    <string name="caitlin">Caitlin</string>
+    <string name="katarina">Katarina</string>
+    <string name="ekko">Ekko</string>
+    <string name="finish_text">Well done you gained: points </string>
+    <string name="text_top">Good Job!</string>
+    <string name="dummytext">dummyText</string>
+</resources>
