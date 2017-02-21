@@ -7,7 +7,7 @@ import android.support.v7.app.AppCompatActivity;
 import android.view.View;
 import android.widget.RadioButton;
 
-public class MainMenu extends AppCompatActivity {
+public class QuestionFragment extends AppCompatActivity {
 
     private int points;
     private AnswerType answer = AnswerType.NO_ANSWER;
@@ -16,7 +16,7 @@ public class MainMenu extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question);
+        setContentView(R.layout.fragment_question);
         correctAnswer=AnswerType.ANSWER_1;
     }
 

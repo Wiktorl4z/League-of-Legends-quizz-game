@@ -10,7 +10,7 @@ public class SceneOne extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_question_one);
+        setContentView(R.layout.fragment_question);
     }
 
     public void subitAsnwer(View v){
