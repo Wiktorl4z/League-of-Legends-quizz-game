@@ -1,30 +1,28 @@
 package com.example.l4z.quizapp;
 
-
-import android.content.Intent;
 import android.os.Bundle;
-import android.support.v7.app.AppCompatActivity;
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.RadioButton;
+import android.widget.TextView;
 
-public class QuestionFragment extends AppCompatActivity {
+public class QuestionFragment extends Fragment {
 
     private int points;
     private AnswerType answer = AnswerType.NO_ANSWER;
     private AnswerType correctAnswer;
+    public static final String QUESTION_OBJECT = "question";
+
 
     @Override
-    public void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.fragment_question);
+    public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         correctAnswer=AnswerType.ANSWER_1;
-    }
-
-
-    public void goToNext(View view) {
-        Intent toMainMenu = new Intent(this, SceneOne.class);
-        startActivity(toMainMenu);
-
+        View rootView = inflater.inflate(R.layout.fragment_question, container, false);
+        Bundle args = getArguments();
+        ((TextView) rootView.findViewById(R.id.questionID)).setText(args.getString(QUESTION_OBJECT));
+        return rootView;
     }
 
     public void checkTheAnswer(View view) {

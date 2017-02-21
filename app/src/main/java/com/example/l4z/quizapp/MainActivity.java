@@ -4,22 +4,19 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.view.View;
-import android.view.ViewGroup;
-import android.widget.TextView;
+
 import android.app.ActionBar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
-import android.view.LayoutInflater;
+
 import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity {
-
-
-    DemoCollectionPagerAdapter mDemoCollectionPagerAdapter;
+    QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
+    public static String[] qs=new String[]{"What is the name of champion?", "What is the name of champion?", "What is the name of champion?"};
 
     /**
      * The {@link android.support.v4.view.ViewPager} that will display the object collection.
@@ -30,24 +27,14 @@ public class MainActivity extends FragmentActivity {
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-
-        // Create an adapter that when requested, will return a fragment representing an object in
-        // the collection.
-        //
-        // ViewPager and its adapters use support library fragments, so we must use
-        // getSupportFragmentManager.
-        mDemoCollectionPagerAdapter = new DemoCollectionPagerAdapter(getSupportFragmentManager());
-
-        // Set up action bar.
+        mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager());
         final ActionBar actionBar = getActionBar();
 
         // Specify that the Home button should show an "Up" caret, indicating that touching the
         // button will take the user one step up in the application's hierarchy.
         actionBar.setDisplayHomeAsUpEnabled(true);
-
-        // Set up the ViewPager, attaching the adapter.
         mViewPager = (ViewPager) findViewById(R.id.pager);
-        mViewPager.setAdapter(mDemoCollectionPagerAdapter);
+        mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
     }
 
     @Override
@@ -80,48 +67,29 @@ public class MainActivity extends FragmentActivity {
      * A {@link android.support.v4.app.FragmentStatePagerAdapter} that returns a fragment
      * representing an object in the collection.
      */
-    public static class DemoCollectionPagerAdapter extends FragmentStatePagerAdapter {
+    public static class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
 
-        public DemoCollectionPagerAdapter(FragmentManager fm) {
+        public QuestionCollectionPagerAdapter(FragmentManager fm) {
             super(fm);
         }
 
         @Override
         public Fragment getItem(int i) {
-            Fragment fragment = new DemoObjectFragment();
+            Fragment fragment = new QuestionFragment();
             Bundle args = new Bundle();
-            args.putInt(DemoObjectFragment.ARG_OBJECT, i + 1); // Our object is just an integer :-P
+            args.putString(QuestionFragment.QUESTION_OBJECT, MainActivity.qs[i]);
             fragment.setArguments(args);
             return fragment;
         }
 
         @Override
         public int getCount() {
-            // For this contrived example, we have a 100-object collection.
-            return 100;
+            return 3;
         }
 
         @Override
         public CharSequence getPageTitle(int position) {
             return "OBJECT " + (position + 1);
-        }
-    }
-
-    /**
-     * A dummy fragment representing a section of the app, but that simply displays dummy text.
-     */
-    public static class DemoObjectFragment extends Fragment {
-
-        public static final String ARG_OBJECT = "object";
-
-        @Override
-        public View onCreateView(LayoutInflater inflater, ViewGroup container,
-                                 Bundle savedInstanceState) {
-            View rootView = inflater.inflate(R.layout.fragment_question, container, false);
-            Bundle args = getArguments();
-            ((TextView) rootView.findViewById(R.id.questionID)).setText(
-                    Integer.toString(args.getInt(ARG_OBJECT)));
-            return rootView;
         }
     }
 
