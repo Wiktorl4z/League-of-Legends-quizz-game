@@ -7,19 +7,15 @@
         android:icon="@mipmap/ic_launcher"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat.Light.NoActionBar">
-        <activity android:name=".MainActivity">
+        <activity android:name=".StartupActivity" >
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
+        <activity android:name=".MainActivity"/>
         <activity android:name=".MainMenu"/>
-        <activity android:name=".SceneOne"/>
-        <activity android:name=".SceneTwo"/>
-        <activity android:name=".SceneThree"/>
-        <activity android:name=".SceneFour"/>
-        <activity android:name=".SceneFive"/>
 
     </application>
 

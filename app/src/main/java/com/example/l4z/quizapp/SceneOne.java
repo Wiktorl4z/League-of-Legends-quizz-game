@@ -10,7 +10,7 @@ public class SceneOne extends AppCompatActivity {
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_scene_one);
+        setContentView(R.layout.activity_question_one);
     }
 
     public void subitAsnwer(View v){
@@ -18,7 +18,7 @@ public class SceneOne extends AppCompatActivity {
     }
 
     public void goToNext (View view){
-        Intent toMainMenu = new Intent(this, SceneTwo.class);
+        Intent toMainMenu = new Intent(this, SceneOne.class);
         startActivity(toMainMenu);
     }
 

@@ -10,41 +10,48 @@ import android.widget.RadioButton;
 public class MainMenu extends AppCompatActivity {
 
     private int points;
+    private AnswerType answer = AnswerType.NO_ANSWER;
+    private AnswerType correctAnswer;
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main_menu);
+        setContentView(R.layout.activity_question);
+        correctAnswer=AnswerType.ANSWER_1;
     }
 
 
-    public void goToNext (View view){
+    public void goToNext(View view) {
         Intent toMainMenu = new Intent(this, SceneOne.class);
         startActivity(toMainMenu);
 
     }
-public void checkTheAnswer (View view){
-    boolean checked = ((RadioButton) view).isChecked();
 
-    // Check which radio button was clicked
-    switch(view.getId()) {
-        case R.id.asnwer1:
-            if (checked)
-                // Pirates are the best
-                break;
-        case R.id.asnwer2:
-            if (checked)
-                // Ninjas rule
-                break;
-        case R.id.asnwer3:
-            if (checked)
-                // Ninjas rule
-                break;
+    public void checkTheAnswer(View view) {
+        if(answer!=AnswerType.NO_ANSWER){
+            if (answer == correctAnswer){
+                points++;
+            } else {
+                points--;
+            }
+        }
     }
 
-
-
+    public void answerButtonClick(View view) {
+        boolean checked = ((RadioButton) view).isChecked();
+        if (checked) {
+            switch (view.getId()) {
+                case R.id.asnwer1:
+                    answer = AnswerType.ANSWER_1;
+                    break;
+                case R.id.asnwer2:
+                    answer = AnswerType.ANSWER_2;
+                    break;
+                case R.id.asnwer3:
+                    answer = AnswerType.ANSWER_3;
+                    break;
+            }
+        }
+    }
 }
 
-
-}
