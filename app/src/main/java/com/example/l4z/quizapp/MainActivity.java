@@ -1,6 +1,7 @@
 package com.example.l4z.quizapp;
 
 import android.content.Intent;
+import android.content.res.AssetManager;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
@@ -13,27 +14,32 @@ import android.support.v4.view.ViewPager;
 import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity {
-    QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
-    public static String[] qs=new String[]{"What is the name of champion?", "What is the name of champion?", "What is the name of champion?"};
+
+
+    private QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
 
     /**
      * The {@link android.support.v4.view.ViewPager} that will display the object collection.
      */
-    ViewPager mViewPager;
+    private ViewPager mViewPager;
+    private FileHelper fileHelper;
+
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_main);
-        mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager());
-       final ActionBar actionBar = getActionBar();
 
-        // Specify that the Home button should show an "Up" caret, indicating that touching the
-        // button will take the user one step up in the application's hierarchy.
+        AssetManager assets = getApplicationContext().getAssets();
+        fileHelper = new FileHelper(assets);
+
+        setContentView(R.layout.activity_main);
+        mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), fileHelper);
+        final ActionBar actionBar = getActionBar();
         actionBar.setDisplayHomeAsUpEnabled(true);
         actionBar.hide();
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
+
     }
 
     @Override
@@ -61,35 +67,4 @@ public class MainActivity extends FragmentActivity {
         }
         return super.onOptionsItemSelected(item);
     }
-
-    /**
-     * A {@link android.support.v4.app.FragmentStatePagerAdapter} that returns a fragment
-     * representing an object in the collection.
-     */
-    public static class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
-
-        public QuestionCollectionPagerAdapter(FragmentManager fm) {
-            super(fm);
-        }
-
-        @Override
-        public Fragment getItem(int i) {
-            Fragment fragment = new QuestionFragment();
-            Bundle args = new Bundle();
-            args.putString(QuestionFragment.QUESTION_OBJECT, MainActivity.qs[i]);
-            fragment.setArguments(args);
-            return fragment;
-        }
-
-        @Override
-        public int getCount() {
-            return 3;
-        }
-
-        @Override
-        public CharSequence getPageTitle(int position) {
-            return "OBJECT " + (position + 1);
-        }
-    }
-
 }

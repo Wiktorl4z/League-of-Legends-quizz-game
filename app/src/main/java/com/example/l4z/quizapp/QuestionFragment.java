@@ -8,12 +8,17 @@ import android.view.ViewGroup;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.Random;
+import java.util.concurrent.ThreadLocalRandom;
+
 public class QuestionFragment extends Fragment {
 
     private int points;
     private AnswerType answer = AnswerType.NO_ANSWER;
     private AnswerType correctAnswer;
     public static final String QUESTION_OBJECT = "question";
+    public static final String CORRECT_ANSWER_OBJECT = "correct_answer";
+    private static Random random= new Random();
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
@@ -21,6 +26,24 @@ public class QuestionFragment extends Fragment {
         View rootView = inflater.inflate(R.layout.fragment_question, container, false);
         Bundle args = getArguments();
         ((TextView) rootView.findViewById(R.id.questionID)).setText(args.getString(QUESTION_OBJECT));
+        int rnd = random.nextInt(3)+1;
+        switch(rnd){
+            case 1:
+            ((RadioButton) rootView.findViewById(R.id.asnwer1)).setText(args.getString(CORRECT_ANSWER_OBJECT));
+                correctAnswer=AnswerType.ANSWER_1;
+                break;
+            case 2:
+                ((RadioButton) rootView.findViewById(R.id.asnwer2)).setText(args.getString(CORRECT_ANSWER_OBJECT));
+                correctAnswer=AnswerType.ANSWER_2;
+                break;
+            case 3:
+                ((RadioButton) rootView.findViewById(R.id.asnwer3)).setText(args.getString(CORRECT_ANSWER_OBJECT));
+                correctAnswer=AnswerType.ANSWER_3;
+                break;
+            default:
+                ((RadioButton) rootView.findViewById(R.id.asnwer1)).setText(args.getString(CORRECT_ANSWER_OBJECT));
+                correctAnswer=AnswerType.ANSWER_1;
+        }
         return rootView;
     }
 
