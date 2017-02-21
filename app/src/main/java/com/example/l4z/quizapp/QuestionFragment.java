@@ -15,7 +15,6 @@ public class QuestionFragment extends Fragment {
     private AnswerType correctAnswer;
     public static final String QUESTION_OBJECT = "question";
 
-
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         correctAnswer=AnswerType.ANSWER_1;

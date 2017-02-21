@@ -4,14 +4,12 @@ import android.content.Intent;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-
 import android.app.ActionBar;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
-
 import android.view.MenuItem;
 
 public class MainActivity extends FragmentActivity {
@@ -28,11 +26,12 @@ public class MainActivity extends FragmentActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
         mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager());
-        final ActionBar actionBar = getActionBar();
+       final ActionBar actionBar = getActionBar();
 
         // Specify that the Home button should show an "Up" caret, indicating that touching the
         // button will take the user one step up in the application's hierarchy.
         actionBar.setDisplayHomeAsUpEnabled(true);
+        actionBar.hide();
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
     }

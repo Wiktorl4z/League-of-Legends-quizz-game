@@ -3,10 +3,10 @@
     package="com.example.l4z.quizapp">
 
     <application
-        android:allowBackup="true"
-        android:icon="@mipmap/ic_launcher"
-        android:supportsRtl="true"
-        android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
+    android:allowBackup="true"
+    android:icon="@mipmap/ic_launcher"
+    android:supportsRtl="true"
+    android:theme="@android:style/Theme.Holo.Light.DarkActionBar">
         <activity android:name=".StartupActivity">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -15,8 +15,6 @@
             </intent-filter>
         </activity>
         <activity android:name=".MainActivity" />
-        <activity android:name=".QuestionFragment" />
 
     </application>
-
 </manifest>
