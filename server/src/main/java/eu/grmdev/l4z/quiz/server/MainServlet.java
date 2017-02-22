@@ -9,6 +9,7 @@ import javax.servlet.http.HttpServletResponse;
 
 public class MainServlet extends HttpServlet {
 	private static final long serialVersionUID = 7291196543718359940L;
+	public static final boolean DEBUG = true;
 	
 	@Override
 	protected void doGet(HttpServletRequest req, HttpServletResponse resp) {

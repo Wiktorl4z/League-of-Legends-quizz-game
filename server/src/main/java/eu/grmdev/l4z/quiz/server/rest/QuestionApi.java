@@ -7,11 +7,12 @@ import javax.ws.rs.Path;
 import javax.ws.rs.Produces;
 import javax.ws.rs.core.MediaType;
 import javax.ws.rs.core.Response;
+import javax.ws.rs.core.Response.Status;
 
-import com.fasterxml.jackson.core.JsonProcessingException;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.github.fluent.hibernate.H;
 
+import eu.grmdev.l4z.quiz.server.MainServlet;
 import eu.grmdev.l4z.quiz.server.data.Question;
 
 @Path("q")
@@ -21,17 +22,18 @@ public class QuestionApi {
 	@GET
 	@Produces(MediaType.APPLICATION_JSON)
 	public Response getAllQuestions() {
-		List<Question> list = H.<Question> request(Question.class).list();
-		ObjectMapper mapper = new ObjectMapper();
-		String json;
 		try {
+			List<Question> list = H.<Question> request(Question.class).list();
+			if (list == null || list.size() == 0) { return Response.status(Status.NOT_FOUND).build(); }
+			ObjectMapper mapper = new ObjectMapper();
+			String json;
 			json = mapper.writeValueAsString(list);
 			return Response.ok(json).build();
 		}
-		catch (JsonProcessingException e) {
+		catch (Exception e) {
 			e.printStackTrace();
-			// return Response.serverError().build();
-			return Response.status(500).entity(e.getLocalizedMessage()).build();
+			if (!MainServlet.DEBUG) { return Response.serverError().build(); }
+			return Response.status(Status.INTERNAL_SERVER_ERROR).entity(e.getLocalizedMessage()).build();
 		}
 	}
 }

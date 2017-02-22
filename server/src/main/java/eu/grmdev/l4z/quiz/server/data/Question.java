@@ -6,6 +6,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.persistence.Table;
 
+import com.fasterxml.jackson.annotation.JsonIgnore;
+
 import lombok.Data;
 
 @Entity
@@ -14,6 +16,7 @@ import lombok.Data;
 public class Question {
 	@Id
 	@GeneratedValue
+	@JsonIgnore
 	private int id;
 	@Column(name = "f_question")
 	private String question;
