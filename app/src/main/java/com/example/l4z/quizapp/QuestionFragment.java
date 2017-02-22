@@ -3,7 +3,6 @@ package com.example.l4z.quizapp;
 import android.os.Bundle;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
-import android.support.v7.view.ContextThemeWrapper;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -14,19 +13,10 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
-
-import com.example.l4z.quizapp.information.*;
 import com.example.l4z.quizapp.information.Question;
 
-import java.util.ArrayList;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Random;
-import java.util.Set;
-import java.util.concurrent.ThreadLocalRandom;
-
 public class QuestionFragment extends Fragment {
-    
+
     private Question question;
     private TextView mQuestion;
     private RadioGroup mRadioGroup;
@@ -66,19 +56,13 @@ public class QuestionFragment extends Fragment {
         mRadioButton3 = (RadioButton) rootView.findViewById(R.id.answer3);
         mImageView = (ImageView) rootView.findViewById(R.id.imageView);
 
-
         mButtonAnswer.setOnClickListener(listener);
 
         mQuestion.setText(question.getQuestion());
         mRadioButton1.setText(question.getQuestions().get(0));
         mRadioButton2.setText(question.getQuestions().get(1));
         mRadioButton3.setText(question.getQuestions().get(2));
-        mImageView.setImageResource(question.getResImage()); // nice, its much easier way i guess than these before
-    // okey job is done, all working fine check by yourself
-       // Its not the best solution, I still have something to show but we have no more time.. okey np :)
-        // next time :), I am kinda disappointed with my opponents, they kicked me :( cuz Im using Meta cards.
-        // lul, im playing hearthose okey im closing
-        // love bye :*
+        mImageView.setImageResource(question.getResImage());
 
         return rootView;
     }

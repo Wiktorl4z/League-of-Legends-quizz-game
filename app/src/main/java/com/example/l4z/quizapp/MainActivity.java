@@ -1,23 +1,17 @@
 package com.example.l4z.quizapp;
 
-import android.content.Intent;
-import android.content.res.AssetManager;
-import android.support.v4.app.FragmentActivity;
 import android.os.Bundle;
-import android.app.ActionBar;
-import android.support.v4.app.NavUtils;
-import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
-
 import com.example.l4z.quizapp.information.Question;
-
 import java.util.ArrayList;
 import java.util.List;
 
 public class MainActivity extends AppCompatActivity {
 
+    private QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
+    private ViewPager mViewPager;
     private static final List<Question> FAKE_QUESTION = new ArrayList<>();
 
     static {
@@ -46,14 +40,6 @@ public class MainActivity extends AppCompatActivity {
         FAKE_QUESTION.add(questions);
     }
 
-
-    private QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
-
-    /**
-     * The {@link android.support.v4.view.ViewPager} that will display the object collection.
-     */
-    private ViewPager mViewPager;
-
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -63,7 +49,9 @@ public class MainActivity extends AppCompatActivity {
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
     }
-
+    /**
+     * The {@link android.support.v4.view.ViewPager} that will display the object collection.
+     */
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
         return super.onOptionsItemSelected(item);
