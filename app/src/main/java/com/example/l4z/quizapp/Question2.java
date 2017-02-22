@@ -1,6 +1,6 @@
 package com.example.l4z.quizapp;
 
-public class Question {
+public class Question2 {
 
     private String question;
     private String image;

@@ -8,9 +8,43 @@ import android.app.ActionBar;
 import android.support.v4.app.NavUtils;
 import android.support.v4.app.TaskStackBuilder;
 import android.support.v4.view.ViewPager;
+import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
 
-public class MainActivity extends FragmentActivity {
+import com.example.l4z.quizapp.information.Question;
+
+import java.util.ArrayList;
+import java.util.List;
+
+public class MainActivity extends AppCompatActivity {
+
+    private static final List<Question> FAKE_QUESTION = new ArrayList<>();
+
+    static {
+        Question questions = new Question(R.drawable.jhin,"Who is the strongest hero?", "balanar");
+        questions.addSelection("traxex");
+        questions.addSelection("balanar");
+        questions.addSelection("queen of pain");
+        FAKE_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.katarina,"Who is best LiveEdu streamer?", "Wiktor-l4z");
+        questions.addSelection("ad-master");
+        questions.addSelection("r2t8");
+        questions.addSelection("Wiktor-l4z");
+        FAKE_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.rengar,"What's the name on the champion", "rengar");
+        questions.addSelection("traxex");
+        questions.addSelection("rengar");
+        questions.addSelection("queen of pain");
+        FAKE_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.yasuo,"Who is the strongest hero?", "yasuo");
+        questions.addSelection("zorro");
+        questions.addSelection("yasuo");
+        questions.addSelection("hero123");
+        FAKE_QUESTION.add(questions);
+    }
 
 
     private QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
@@ -19,54 +53,19 @@ public class MainActivity extends FragmentActivity {
      * The {@link android.support.v4.view.ViewPager} that will display the object collection.
      */
     private ViewPager mViewPager;
-    private FileHelper fileHelper;
-    private static String[] names;
-
 
     @Override
     public void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
 
-        AssetManager assets = getApplicationContext().getAssets();
-        fileHelper = new FileHelper(assets);
-        names=fileHelper.getNames();
-
         setContentView(R.layout.activity_main);
-        mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), fileHelper);
-        final ActionBar actionBar = getActionBar();
-        actionBar.setDisplayHomeAsUpEnabled(true);
-        actionBar.hide();
+        mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), FAKE_QUESTION);
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
     }
 
     @Override
     public boolean onOptionsItemSelected(MenuItem item) {
-        switch (item.getItemId()) {
-            case android.R.id.home:
-                // This is called when the Home (Up) button is pressed in the action bar.
-                // Create a simple intent that starts the hierarchical parent activity and
-                // use NavUtils in the Support Package to ensure proper handling of Up.
-                Intent upIntent = new Intent(this, MainActivity.class);
-                if (NavUtils.shouldUpRecreateTask(this, upIntent)) {
-                    // This activity is not part of the application's task, so create a new task
-                    // with a synthesized back stack.
-                    TaskStackBuilder.from(this)
-                            // If there are ancestor activities, they should be added here.
-                            .addNextIntent(upIntent)
-                            .startActivities();
-                    finish();
-                } else {
-                    // This activity is part of the application's task, so simply
-                    // navigate up to the hierarchical parent activity.
-                    NavUtils.navigateUpTo(this, upIntent);
-                }
-                return true;
-        }
         return super.onOptionsItemSelected(item);
-    }
-
-    public static String[] getNames(){
-        return names;
     }
 }

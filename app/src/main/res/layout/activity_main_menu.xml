@@ -19,13 +19,14 @@
 
         <TextView
             android:layout_width="match_parent"
-            android:paddingTop="10dp"
             android:layout_height="wrap_content"
             android:gravity="center"
+            android:paddingTop="10dp"
             android:text="@string/question"
             android:textSize="@dimen/textQuestionSize" />
 
         <RadioGroup
+            android:id="@+id/selected_ans"
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
             android:orientation="vertical">
@@ -49,6 +50,7 @@
                 android:layout_height="wrap_content"
                 android:text="@string/zyra" />
         </RadioGroup>
+
         <RadioGroup
             android:layout_width="fill_parent"
             android:layout_height="wrap_content"
@@ -60,16 +62,16 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
-                android:onClick="checkTheAnswer"
                 android:layout_weight="1"
+                android:onClick="checkTheAnswer"
                 android:text="Check" />
 
             <Button
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_gravity="right"
-                android:onClick="goToNext"
                 android:layout_weight="1"
+                android:onClick="goToNext"
                 android:text="Next" />
 
 

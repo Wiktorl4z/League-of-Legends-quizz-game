@@ -5,8 +5,6 @@ import android.content.res.AssetManager;
 import com.fasterxml.jackson.core.type.TypeReference;
 import com.fasterxml.jackson.databind.ObjectMapper;
 
-import org.json.JSONObject;
-
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
@@ -21,11 +19,11 @@ public class FileHelper {
         this.assets = assets;
     }
 
-    public List<Question> getQuestions(){
+    public List<Question2> getQuestions(){
         try {
         String json=getString(QUESTIONS_FILENAME);
         ObjectMapper mapper = new ObjectMapper();
-        List<Question> list = mapper.readValue(json, new TypeReference<List<Question>>(){});
+        List<Question2> list = mapper.readValue(json, new TypeReference<List<Question2>>(){});
         return list;
         } catch (Exception e) {
             e.printStackTrace();
