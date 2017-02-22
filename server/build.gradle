@@ -1,0 +1,136 @@
+buildscript {
+    repositories {
+        jcenter()
+    }
+    dependencies {
+		 classpath 'com.bmuschko:gradle-tomcat-plugin:2.2.5'
+    }
+}
+
+apply plugin: 'war'
+apply plugin: 'java'
+apply plugin: 'pmd'
+apply plugin: 'idea'
+apply plugin: 'eclipse-wtp'
+apply plugin: 'com.bmuschko.tomcat'
+ 
+group="eu.grmdev.l4z.quiz.server"
+description = "Java REST Server for LOL Quiz App."
+
+sourceCompatibility = 1.8
+targetCompatibility = 1.8
+
+project.webAppDirName = 'web'
+
+configurations {
+	jdbcdriver
+	providedRuntime
+}
+
+def vM = 0
+def vN = 1
+project.ext.set("vM", vM)
+project.ext.set("vN", vN)
+
+if (hasProperty("teamcity")) {
+	version="0."+vM+"."+vN+"."+teamcity['build.number']
+} else {
+	version="0."+vM+"."+vN
+}
+
+
+if (hasProperty("teamcity")) {
+	version="0."+vM+"."+vN+"."+teamcity['build.number']
+} else {
+	version="0."+vM+"."+vN
+}
+
+task javadocJar(type: Jar) {
+	classifier = 'javadoc'
+	from javadoc
+}
+
+task sourcesJar(type: Jar) {
+	classifier = 'sources'
+	from sourceSets.main.allSource
+}
+
+artifacts {
+	archives javadocJar, sourcesJar
+}
+
+repositories {
+	mavenCentral()
+	mavenLocal()
+	jcenter()
+	}
+
+dependencies {
+	def tomcatVersion = '9.0.0.M17'
+	def jConnectorVersion = '6.0.5'
+	compile group: 'com.google.guava', 						name: 'guava', 						version: '21.0'
+	compile group: 'org.apache.commons', 					name: 'commons-lang3', 				version: '3.5'
+	compile group: 'com.fasterxml.jackson.datatype', 		name: 'jackson-datatype-json-org', 	version: '2.8.6'
+	compile group: 'org.apache.logging.log4j', 				name: 'log4j-core', 				version: '2.7'
+	compile group: 'org.apache.logging.log4j', 				name: 'log4j', 						version: '2.7'
+	compile group: 'org.apache.logging.log4j', 				name: 'log4j-slf4j-impl', 			version: '2.7'
+	compile group: 'org.jboss.logging', 					name: 'jboss-logging', 				version: '3.3.0.Final'
+
+	compile group: 'mysql',									name: 'mysql-connector-java', 		version: "${jConnectorVersion}"
+	compile group: 'org.hibernate', 						name: 'hibernate-core', 			version: '5.2.7.Final'
+	compile group: 'com.github.v-ladynev', 					name: 'fluent-hibernate-core', 		version: '0.3.1'
+	compile group: 'org.glassfish.jersey.containers', 		name: 'jersey-container-servlet', 	version: '2.24'
+
+	compile "org.apache.tomcat:tomcat-jdbc:${tomcatVersion}"
+	tomcat "org.apache.tomcat.embed:tomcat-embed-core:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-logging-juli:${tomcatVersion}",
+           "org.apache.tomcat.embed:tomcat-embed-jasper:${tomcatVersion}"
+	//compile project(':core')
+	//compile fileTree(dir: 'libs', include: '*.jar')
+		
+	//runtime 'javax.servlet:jstl:1.2'
+	jdbcdriver "mysql:mysql-connector-java:${jConnectorVersion}"
+
+	compileOnly('org.projectlombok:lombok')
+
+	providedCompile 'javax.servlet:javax.servlet-api:4.0.0-b01', 'javax.servlet:jsp-api:2.0'
+	providedCompile "org.projectlombok:lombok:1.16.14"
+
+	testCompile 'junit:junit:4.12'
+	testCompile 'org.assertj:assertj-core:3.6.2'
+}
+
+task wrapper(type: Wrapper) {
+    gradleVersion = '3.4'
+}
+
+task deploylocal() {
+	doLast {
+		println "Deploying to local"
+		println war.archivePath
+		copy {
+			from war
+			into "P:/programy/TomCat/webapps"
+		}
+	}
+}
+
+deploylocal.dependsOn build
+
+task pmd {
+	doLast {
+		println 'Running PMD static code analysis'
+		ant {
+			taskdef(name:'pmd', classname:'net.sourceforge.pmd.ant.PMDTask', classpath: configurations.pmdConf.asPath)
+			pmd(shortFilenames:'true', failonruleviolation:'true', rulesetfiles:'conf/pmd-rules.xml') {
+				formatter(type:'csv', tofile:'myreport.csv', toConsole:'true')
+				fileset(dir: "src/main/java") {
+					include(name: '**/*.java')
+				}
+				fileset(dir: "src/test/java") {
+					include(name: '**/*.java')
+				}        
+			}
+		}
+	}
+}
