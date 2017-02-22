@@ -20,6 +20,7 @@ public class MainActivity extends FragmentActivity {
      */
     private ViewPager mViewPager;
     private FileHelper fileHelper;
+    private static String[] names;
 
 
     @Override
@@ -28,6 +29,7 @@ public class MainActivity extends FragmentActivity {
 
         AssetManager assets = getApplicationContext().getAssets();
         fileHelper = new FileHelper(assets);
+        names=fileHelper.getNames();
 
         setContentView(R.layout.activity_main);
         mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), fileHelper);
@@ -36,7 +38,6 @@ public class MainActivity extends FragmentActivity {
         actionBar.hide();
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
-
     }
 
     @Override
@@ -63,5 +64,9 @@ public class MainActivity extends FragmentActivity {
                 return true;
         }
         return super.onOptionsItemSelected(item);
+    }
+
+    public static String[] getNames(){
+        return names;
     }
 }

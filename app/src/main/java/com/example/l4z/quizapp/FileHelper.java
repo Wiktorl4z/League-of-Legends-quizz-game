@@ -10,6 +10,7 @@ import org.json.JSONObject;
 import java.io.IOException;
 import java.io.InputStream;
 import java.util.List;
+import java.util.Map;
 
 public class FileHelper {
     private static String QUESTIONS_FILENAME = "questions.json";
@@ -27,6 +28,18 @@ public class FileHelper {
         List<Question> list = mapper.readValue(json, new TypeReference<List<Question>>(){});
         return list;
         } catch (Exception e) {
+            e.printStackTrace();
+            return null;
+        }
+    }
+
+    public String[] getNames(){
+        try{
+            String json= getString(DATABASE_FILENAME);
+            ObjectMapper mapper = new ObjectMapper();
+            Map<String, String[]> map = mapper.readValue(json, new TypeReference<Map<String, String[]>>(){});
+            return map.get("names");
+        }catch(Exception e){
             e.printStackTrace();
             return null;
         }

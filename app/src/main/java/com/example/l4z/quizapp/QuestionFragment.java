@@ -10,7 +10,11 @@ import android.widget.Button;
 import android.widget.RadioButton;
 import android.widget.TextView;
 
+import java.util.ArrayList;
+import java.util.HashSet;
+import java.util.List;
 import java.util.Random;
+import java.util.Set;
 import java.util.concurrent.ThreadLocalRandom;
 
 public class QuestionFragment extends Fragment {
@@ -20,11 +24,15 @@ public class QuestionFragment extends Fragment {
     private AnswerType correctAnswer;
     public static final String QUESTION_OBJECT = "question";
     public static final String CORRECT_ANSWER_OBJECT = "correct_answer";
-    private static Random random= new Random();
+    private static Random random = new Random();
+    private List<String> answerStrings = new ArrayList<>(3);
 
     @Override
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
-        correctAnswer=AnswerType.ANSWER_1;
+        for(int i=0;i<3;i++){
+            answerStrings.add(null);
+        }
+        correctAnswer = AnswerType.ANSWER_1;
         View rootView = inflater.inflate(R.layout.fragment_question, container, false);
         rootView.findViewById(R.id.buttonAnswer).setOnClickListener(new OnClickListener() {
             @Override
@@ -52,30 +60,48 @@ public class QuestionFragment extends Fragment {
         });
         Bundle args = getArguments();
         ((TextView) rootView.findViewById(R.id.questionID)).setText(args.getString(QUESTION_OBJECT));
-        int rnd = random.nextInt(3)+1;
-        switch(rnd){
+        int rnd = random.nextInt(3);
+        answerStrings.add(rnd, args.getString(CORRECT_ANSWER_OBJECT));
+        switch (rnd) {
+            case 0:
+                correctAnswer = AnswerType.ANSWER_1;
+                break;
             case 1:
-            ((RadioButton) rootView.findViewById(R.id.answer1)).setText(args.getString(CORRECT_ANSWER_OBJECT));
-                correctAnswer=AnswerType.ANSWER_1;
+                correctAnswer = AnswerType.ANSWER_2;
                 break;
             case 2:
-                ((RadioButton) rootView.findViewById(R.id.answer2)).setText(args.getString(CORRECT_ANSWER_OBJECT));
-                correctAnswer=AnswerType.ANSWER_2;
+                correctAnswer = AnswerType.ANSWER_3;
                 break;
-            case 3:
-                ((RadioButton) rootView.findViewById(R.id.answer3)).setText(args.getString(CORRECT_ANSWER_OBJECT));
-                correctAnswer=AnswerType.ANSWER_3;
-                break;
-            default:
-                ((RadioButton) rootView.findViewById(R.id.answer1)).setText(args.getString(CORRECT_ANSWER_OBJECT));
-                correctAnswer=AnswerType.ANSWER_1;
         }
+        fillTheRest();
+        ((RadioButton) rootView.findViewById(R.id.answer1)).setText(answerStrings.get(0));
+        ((RadioButton) rootView.findViewById(R.id.answer2)).setText(answerStrings.get(1));
+        ((RadioButton) rootView.findViewById(R.id.answer3)).setText(answerStrings.get(2));
         return rootView;
     }
 
+    private void fillTheRest() {
+        String[] names = MainActivity.getNames();
+        for (int i = 0; i < 3; i++) {
+            if (answerStrings.get(i) == null) {
+                String name = getRandom(names);
+                answerStrings.add(i, name);
+            }
+        }
+    }
+
+    public String getRandom(String[] a) {
+        String s;
+        do {
+            int rnd = random.nextInt(a.length - 1);
+            s = a[rnd];
+        } while (answerStrings.contains(s));
+        return s;
+    }
+
     public void checkTheAnswer(View view) {
-        if(answer!=AnswerType.NO_ANSWER){
-            if (answer == correctAnswer){
+        if (answer != AnswerType.NO_ANSWER) {
+            if (answer == correctAnswer) {
                 points++;
             } else {
                 points--;
