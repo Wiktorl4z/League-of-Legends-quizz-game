@@ -1,21 +1,24 @@
 package com.example.l4z.quizapp.information;
 
+import android.os.Parcel;
+import android.os.Parcelable;
+
 import java.util.ArrayList;
 import java.util.List;
 
-public class Question {
+public class Question  {
 
     private int mImageRes;
     private String mProblem;
     private List<String> selection;
-    private String correctAnswere;
+    private String correctAnswer;
     private boolean answered;
     private boolean answeredCorrect;
 
-    public Question(int intImage, String mProblem, String correctAnswere) {
+    public Question(int intImage, String mProblem, String correctAnswer) {
         mImageRes = intImage;
         selection = new ArrayList<>();
-        this.correctAnswere = correctAnswere;
+        this.correctAnswer = correctAnswer;
         this.mProblem = mProblem;
     }
 
@@ -51,7 +54,10 @@ public class Question {
         return selection;
     }
 
-    public String getCorrectAnswere() {
-        return correctAnswere;
+    public String getCorrectAnswer() {
+        return correctAnswer;
     }
+
+
+
 }

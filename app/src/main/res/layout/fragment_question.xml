@@ -58,6 +58,7 @@
             android:orientation="horizontal">
 
             <Button
+                android:visibility="invisible"
                 android:id="@+id/buttonAnswer"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"

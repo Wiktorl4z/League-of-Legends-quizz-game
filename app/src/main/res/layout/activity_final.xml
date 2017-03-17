@@ -25,10 +25,10 @@
             android:src="@drawable/challanger" />
 
         <TextView
-            android:id="@+id/pointsGeined"
+            android:id="@+id/pointsGained"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="@string/finish_text" />
+            android:text="" />
 
     </LinearLayout>
 
