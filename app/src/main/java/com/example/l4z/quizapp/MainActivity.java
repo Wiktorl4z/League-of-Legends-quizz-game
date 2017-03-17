@@ -14,26 +14,27 @@ public class MainActivity extends AppCompatActivity {
     private ViewPager mViewPager;
     private static final List<Question> FAKE_QUESTION = new ArrayList<>();
 
+
     static {
-        Question questions = new Question(R.drawable.jhin,"Who is the strongest hero?", "balanar");
+        Question questions = new Question(R.drawable.jhin,"What's the name on the champion?", "Jhin");
+        questions.addSelection("Graves");
+        questions.addSelection("Jhin");
+        questions.addSelection("Vayne");
+        FAKE_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.katarina,"What's the name on the champion?", "Katarina");
+        questions.addSelection("Katarina");
+        questions.addSelection("Lux");
+        questions.addSelection("Diana");
+        FAKE_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.rengar,"What's the name on the champion?", "Rengar");
         questions.addSelection("traxex");
-        questions.addSelection("balanar");
+        questions.addSelection("Rengar");
         questions.addSelection("queen of pain");
         FAKE_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.katarina,"Who is best LiveEdu streamer?", "Wiktor-l4z");
-        questions.addSelection("ad-master");
-        questions.addSelection("r2t8");
-        questions.addSelection("Wiktor-l4z");
-        FAKE_QUESTION.add(questions);
-
-        questions = new Question(R.drawable.rengar,"What's the name on the champion", "rengar");
-        questions.addSelection("traxex");
-        questions.addSelection("rengar");
-        questions.addSelection("queen of pain");
-        FAKE_QUESTION.add(questions);
-
-        questions = new Question(R.drawable.yasuo,"Who is the strongest hero?", "yasuo");
+        questions = new Question(R.drawable.yasuo,"What's the name on the champion?", "yasuo");
         questions.addSelection("zorro");
         questions.addSelection("yasuo");
         questions.addSelection("hero123");

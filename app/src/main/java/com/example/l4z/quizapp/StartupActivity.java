@@ -14,7 +14,7 @@ public class StartupActivity extends AppCompatActivity {
     }
 
     public void onImageClick(View view) {
-        Intent mainActivity = new Intent(this, MainActivity.class);
+        Intent mainActivity = new Intent(this, MainMenu.class);
         startActivity(mainActivity);
     }
 }

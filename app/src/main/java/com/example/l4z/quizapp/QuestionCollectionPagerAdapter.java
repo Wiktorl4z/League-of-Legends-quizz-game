@@ -13,16 +13,16 @@ import java.util.List;
  * representing an object in the collection.
  */
 public class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
-    private final List<Question> question2s;
+    private final List<Question> questions;
 
-    public QuestionCollectionPagerAdapter(FragmentManager fm, List<Question> questions) {
+    public  QuestionCollectionPagerAdapter(FragmentManager fm, List<Question> questions) {
         super(fm);
-        this.question2s = questions;
+        this.questions = questions;
     }
 
     @Override
     public Fragment getItem(int i) {
-        Question q = question2s.get(i);
+        Question q = questions.get(i);
         QuestionFragment fragment = new QuestionFragment();
         fragment.setQuestion(q);
         return fragment;
@@ -30,11 +30,11 @@ public class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
 
     @Override
     public int getCount() {
-        return question2s.size();
+        return questions.size();
     }
 
     @Override
     public CharSequence getPageTitle(int position) {
-        return "OBJECT " + (position + 1);
+        return "QUESTION " + (position + 1);
     }
 }

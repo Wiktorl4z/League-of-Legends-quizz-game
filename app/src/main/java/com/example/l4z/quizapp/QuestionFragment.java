@@ -20,9 +20,7 @@ public class QuestionFragment extends Fragment {
     private Question question;
     private TextView mQuestion;
     private RadioGroup mRadioGroup;
-    private RadioButton mRadioButton1;
-    private RadioButton mRadioButton2;
-    private RadioButton mRadioButton3;
+    private RadioButton mRadioButton1,mRadioButton2,mRadioButton3;
     private Button mButtonAnswer;
     private ImageView mImageView;
 
@@ -34,19 +32,7 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_question, container, false);
 
-        OnClickListener listener = new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                if (view == mButtonAnswer) {
-                    int checkedRadioButtonId = mRadioGroup.getCheckedRadioButtonId();
-                    Log.v("TAG", checkedRadioButtonId + "");
-                    RadioButton viewById = (RadioButton) mRadioGroup.findViewById(checkedRadioButtonId);
-                    if (viewById != null) {
-                        checkAnswere(question.getCorrectAnswere(), viewById.getText().toString());
-                    }
-                }
-            }
-        };
+        OnClickListener listener = view -> onAnswerClick(view);
 
         mQuestion = (TextView) rootView.findViewById(R.id.questionID);
         mRadioGroup = (RadioGroup) rootView.findViewById(R.id.radioButtonID);
@@ -67,15 +53,29 @@ public class QuestionFragment extends Fragment {
         return rootView;
     }
 
-    private void checkAnswere(String answ, String selected) {
+    private void onAnswerClick(View view) {
+        if (view == mButtonAnswer) {
+            int checkedRadioButtonId = mRadioGroup.getCheckedRadioButtonId();
+            Log.v("TAG", checkedRadioButtonId + "");
+            RadioButton viewById = (RadioButton) mRadioGroup.findViewById(checkedRadioButtonId);
+            if (viewById != null) {
+                checkAnswer(question.getCorrectAnswere(), viewById.getText().toString());
+            }
+        }
+    }
+
+    private void checkAnswer(String answ, String selected) {
+        question.setAnswered(true);
         if (answ.equalsIgnoreCase(selected)) {
-            AlertDialog.Builder dialig = new AlertDialog.Builder(getActivity());
-            dialig.setMessage("Yo got it right!");
-            dialig.show();
+            question.setAnsweredCorrect(true);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+            dialog.setMessage("Yo got it right!");
+            dialog.show();
         } else {
-            AlertDialog.Builder dialig = new AlertDialog.Builder(getActivity());
-            dialig.setMessage("Too bad, it's wrong answer!");
-            dialig.show();
+            question.setAnsweredCorrect(false);
+            AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
+            dialog.setMessage("Too bad, it's wrong answer!");
+            dialog.show();
         }
     }
 }

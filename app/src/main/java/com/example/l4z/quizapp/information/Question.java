@@ -9,12 +9,30 @@ public class Question {
     private String mProblem;
     private List<String> selection;
     private String correctAnswere;
+    private boolean answered;
+    private boolean answeredCorrect;
 
     public Question(int intImage, String mProblem, String correctAnswere) {
         mImageRes = intImage;
         selection = new ArrayList<>();
         this.correctAnswere = correctAnswere;
         this.mProblem = mProblem;
+    }
+
+    public boolean isAnsweredCorrect() {
+        return answeredCorrect;
+    }
+
+    public void setAnsweredCorrect(boolean answeredCorrect) {
+        this.answeredCorrect = answeredCorrect;
+    }
+
+    public boolean isAnswered() {
+        return answered;
+    }
+
+    public void setAnswered(boolean answered) {
+        this.answered = answered;
     }
 
     public int getResImage() {

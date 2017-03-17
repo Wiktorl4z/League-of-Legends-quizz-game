@@ -12,4 +12,7 @@
     <string name="ekko">Ekko</string>
     <string name="finish_text">Well done you gained: points </string>
     <string name="text_top">Good Job!</string>
+    <string name="champions">Champions</string>
+    <string name="Items">items</string>
+    <string name="Spells">spells</string>
 </resources>
