@@ -92,14 +92,8 @@ public class QuestionFragment extends Fragment {
         question.setAnswered(true);
         if (answ.equalsIgnoreCase(selected)) {
             question.setAnsweredCorrect(true);
-            AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-            dialog.setMessage("Yo got it right!");
-            dialog.show();
         } else {
             question.setAnsweredCorrect(false);
-            AlertDialog.Builder dialog = new AlertDialog.Builder(getActivity());
-            dialog.setMessage("Too bad, it's wrong answer!");
-            dialog.show();
         }
     }
 

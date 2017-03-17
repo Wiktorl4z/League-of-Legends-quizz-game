@@ -76,6 +76,7 @@ public class MainActivity extends AppCompatActivity {
         ArrayList<String> list = new ArrayList<String>();
         int all = 0;
         int correct = 0;
+
         for (Question q: questions) {
             if (q.isAnswered()){
                 all++;
@@ -84,8 +85,19 @@ public class MainActivity extends AppCompatActivity {
                 correct++;
             }
         }
+
+        String image;
+        if(correct == all){
+            image = "challenger";
+        } else if (correct > all/2){
+            image = "gold";
+        } else {
+            image = "bronze";
+        }
+
         list.add("Odpowiedziales na " + all);
         list.add("Odpowiedziales poprawnie " + correct);
+        list.add(image);
         mFinal.putStringArrayListExtra(QUESTIONS_INTENT,list);
         startActivity(mFinal);
     }
