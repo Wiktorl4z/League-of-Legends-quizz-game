@@ -5,6 +5,7 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -38,10 +39,12 @@ public class FinalScreenActivity extends AppCompatActivity {
 
         email = (ImageView)findViewById(R.id.emailImage);
         email.setOnClickListener((View.OnClickListener) v -> {
+            EditText editText = (EditText) findViewById(R.id.feedBackText);
+            String comment = editText.getText().toString();
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                     "mailto","WiktorKalinowski@email.com", null));
-            intent.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
-            intent.putExtra(Intent.EXTRA_TEXT, "body of email");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Wiadomosc Quiz App");
+            intent.putExtra(Intent.EXTRA_TEXT, comment);
             try {
                 startActivity(Intent.createChooser(intent, "Send mail..."));
             } catch (android.content.ActivityNotFoundException ex) {
