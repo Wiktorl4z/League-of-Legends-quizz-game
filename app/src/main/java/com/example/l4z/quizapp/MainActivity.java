@@ -16,8 +16,11 @@ public class MainActivity extends AppCompatActivity {
     public static final String QUESTIONS_INTENT = "questions";
     private QuestionCollectionPagerAdapter mQuestionCollectionPagerAdapter;
     private ViewPager mViewPager;
-    private static final List<Question> FAKE_QUESTION = new ArrayList<>();
+    private static final List<Question> FAKE_CHAMPIONS_QUESTION = new ArrayList<>();
+    private static final List<Question> FAKE_ITEM_QUESTION = new ArrayList<>();
+    private static final List<Question> FAKE_SPELLS_QUESTION = new ArrayList<>();
     private static MainActivity instance;
+    public static final String PRESSED_BUTTON_KEY = "mainMenuButton";
 
 
     static {
@@ -25,25 +28,77 @@ public class MainActivity extends AppCompatActivity {
         questions.addSelection("Graves");
         questions.addSelection("Jhin");
         questions.addSelection("Vayne");
-        FAKE_QUESTION.add(questions);
+        FAKE_CHAMPIONS_QUESTION.add(questions);
 
         questions = new Question(R.drawable.katarina, "What's the name on the champion?", "Katarina");
         questions.addSelection("Katarina");
         questions.addSelection("Lux");
         questions.addSelection("Diana");
-        FAKE_QUESTION.add(questions);
+        FAKE_CHAMPIONS_QUESTION.add(questions);
 
         questions = new Question(R.drawable.rengar, "What's the name on the champion?", "Rengar");
         questions.addSelection("traxex");
         questions.addSelection("Rengar");
         questions.addSelection("queen of pain");
-        FAKE_QUESTION.add(questions);
+        FAKE_CHAMPIONS_QUESTION.add(questions);
 
         questions = new Question(R.drawable.yasuo, "What's the name on the champion?", "yasuo");
         questions.addSelection("zorro");
         questions.addSelection("yasuo");
         questions.addSelection("hero123");
-        FAKE_QUESTION.add(questions);
+        FAKE_CHAMPIONS_QUESTION.add(questions);
+    }
+
+    static {
+        Question questions = new Question(R.drawable.zonia, "What's the name on the Item?", "zhonyas");
+        questions.addSelection("Graves");
+        questions.addSelection("zhonyas");
+        questions.addSelection("Vayne");
+        FAKE_ITEM_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.frozen, "What's the name on the Item?", "frozen");
+        questions.addSelection("Katarina");
+        questions.addSelection("Lux");
+        questions.addSelection("frozen");
+        FAKE_ITEM_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.seraph100, "What's the name on the Item?", "seraphs");
+        questions.addSelection("seraphs");
+        questions.addSelection("liandrys");
+        questions.addSelection("queen of pain");
+        FAKE_ITEM_QUESTION.add(questions);
+
+        questions = new Question(R.drawable. meja, "What's the name on the Item?", "mejais");
+        questions.addSelection("zorro");
+        questions.addSelection("mejais");
+        questions.addSelection("hero123");
+        FAKE_ITEM_QUESTION.add(questions);
+    }
+
+    static {
+        Question questions = new Question(R.drawable.ignite, "What's the name on the spell?", "ignite");
+        questions.addSelection("ignite");
+        questions.addSelection("teleport");
+        questions.addSelection("Barier");
+        FAKE_SPELLS_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.heal, "What's the name on the spell?", "heal");
+        questions.addSelection("heal");
+        questions.addSelection("teleport");
+        questions.addSelection("Barier");
+        FAKE_SPELLS_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.mark, "What's the name on the spell?", "mark");
+        questions.addSelection("teleport");
+        questions.addSelection("Barier");
+        questions.addSelection("mark");
+        FAKE_SPELLS_QUESTION.add(questions);
+
+        questions = new Question(R.drawable.smite, "What's the name on the spell?", "smite");
+        questions.addSelection("smite");
+        questions.addSelection("teleport");
+        questions.addSelection("Barier");
+        FAKE_SPELLS_QUESTION.add(questions);
     }
 
     @Override
@@ -52,7 +107,18 @@ public class MainActivity extends AppCompatActivity {
         instance = this;
 
         setContentView(R.layout.activity_main);
-        mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), FAKE_QUESTION);
+        byte b = getIntent().getExtras().getByte(PRESSED_BUTTON_KEY);
+        switch (b) {
+            case 0:
+                mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), FAKE_CHAMPIONS_QUESTION);
+                break;
+            case 1:
+                mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), FAKE_ITEM_QUESTION);
+                break;
+            case 2:
+                mQuestionCollectionPagerAdapter = new QuestionCollectionPagerAdapter(getSupportFragmentManager(), FAKE_SPELLS_QUESTION);
+                break;
+        }
         mViewPager = (ViewPager) findViewById(R.id.pager);
         mViewPager.setAdapter(mQuestionCollectionPagerAdapter);
     }
@@ -74,31 +140,32 @@ public class MainActivity extends AppCompatActivity {
 
         List<Question> questions = mQuestionCollectionPagerAdapter.getQuestions();
         ArrayList<String> list = new ArrayList<String>();
-        int all = 0;
+        int answered = 0;
         int correct = 0;
+        int all = questions.size();
 
-        for (Question q: questions) {
-            if (q.isAnswered()){
-                all++;
+        for (Question q : questions) {
+            if (q.isAnswered()) {
+                answered++;
             }
-            if (q.isAnsweredCorrect()){
+            if (q.isAnsweredCorrect()) {
                 correct++;
             }
         }
 
         String image;
-        if(correct == all){
+        if (correct == all) {
             image = "challenger";
-        } else if (correct > all/2){
+        } else if (correct > all / 2) {
             image = "gold";
         } else {
             image = "bronze";
         }
 
-        list.add("Odpowiedziales na " + all);
-        list.add("Odpowiedziales poprawnie " + correct);
+
+        list.add("Odpowiedziales poprawnie na " + correct + " pytan z " + all + " zadanych.");
         list.add(image);
-        mFinal.putStringArrayListExtra(QUESTIONS_INTENT,list);
+        mFinal.putStringArrayListExtra(QUESTIONS_INTENT, list);
         startActivity(mFinal);
     }
 }

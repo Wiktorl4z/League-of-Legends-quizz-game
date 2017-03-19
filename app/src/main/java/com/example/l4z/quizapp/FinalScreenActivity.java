@@ -1,10 +1,13 @@
 package com.example.l4z.quizapp;
 
+import android.content.Intent;
+import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.View;
 import android.widget.ImageView;
 import android.widget.TextView;
-
+import android.widget.Toast;
 import java.util.ArrayList;
 
 import static com.example.l4z.quizapp.MainActivity.QUESTIONS_INTENT;
@@ -12,6 +15,7 @@ import static com.example.l4z.quizapp.MainActivity.QUESTIONS_INTENT;
 public class FinalScreenActivity extends AppCompatActivity {
 
     TextView pointsGained;
+    ImageView email;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,8 +24,8 @@ public class FinalScreenActivity extends AppCompatActivity {
 
         ArrayList<String> list = getIntent().getExtras().getStringArrayList(QUESTIONS_INTENT);
         pointsGained = (TextView) findViewById(R.id.pointsGained);
-        pointsGained.setText(list.get(0) + list.get(1));
-        String imageName = list.get(2);
+        pointsGained.setText(list.get(0));
+        String imageName = list.get(1);
 
         ImageView imageView = (ImageView) findViewById(R.id.rankImage);
         if (imageName.equals("challenger")) {
@@ -31,5 +35,19 @@ public class FinalScreenActivity extends AppCompatActivity {
         } else if (imageName.equals("bronze")) {
             imageView.setImageResource(R.drawable.bronze_rank);
         }
+
+        email = (ImageView)findViewById(R.id.emailImage);
+        email.setOnClickListener((View.OnClickListener) v -> {
+            Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
+                    "mailto","WiktorKalinowski@email.com", null));
+            intent.putExtra(Intent.EXTRA_SUBJECT, "subject of email");
+            intent.putExtra(Intent.EXTRA_TEXT, "body of email");
+            try {
+                startActivity(Intent.createChooser(intent, "Send mail..."));
+            } catch (android.content.ActivityNotFoundException ex) {
+                Toast.makeText(FinalScreenActivity.this, "There are no email clients installed.", Toast.LENGTH_SHORT).show();
+            }
+            startActivity(Intent.createChooser(intent, "Choose an Email client :"));
+        });
     }
 }

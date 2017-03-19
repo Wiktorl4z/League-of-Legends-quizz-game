@@ -57,7 +57,4 @@ public class Question  {
     public String getCorrectAnswer() {
         return correctAnswer;
     }
-
-
-
 }
