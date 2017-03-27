@@ -162,7 +162,6 @@ public class MainActivity extends AppCompatActivity {
             image = "bronze";
         }
 
-
         list.add("Odpowiedziales poprawnie na " + correct + " pytan z " + all + " zadanych.");
         list.add(image);
         mFinal.putStringArrayListExtra(QUESTIONS_INTENT, list);

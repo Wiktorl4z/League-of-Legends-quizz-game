@@ -3,14 +3,11 @@ package com.example.l4z.quizapp;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.view.View;
-import android.view.ViewGroup;
 import android.widget.Button;
 
 import com.example.l4z.quizapp.information.Question;
 
 import java.util.List;
-
 
 
 /**
@@ -34,8 +31,7 @@ public class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
         QuestionFragment fragment = new QuestionFragment();
         fragment.setQuestion(q);
         if (i == getCount() - 1) {
-
-          fragment.setLastQuestion(true);
+            fragment.setLastQuestion(true);
         }
         return fragment;
     }

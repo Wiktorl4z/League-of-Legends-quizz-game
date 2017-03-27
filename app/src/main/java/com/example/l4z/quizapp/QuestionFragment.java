@@ -34,12 +34,7 @@ public class QuestionFragment extends Fragment {
     public View onCreateView(LayoutInflater inflater, ViewGroup container, Bundle savedInstanceState) {
         View rootView = inflater.inflate(R.layout.fragment_question, container, false);
 
-        OnClickListener listener = new OnClickListener() {
-            @Override
-            public void onClick(View view) {
-                QuestionFragment.this.onAnswerClick(view);
-            }
-        };
+        OnClickListener listener = view -> QuestionFragment.this.onAnswerClick(view);
 
         mQuestion = (TextView) rootView.findViewById(R.id.questionID);
         mRadioGroup = (RadioGroup) rootView.findViewById(R.id.radioButtonID);
@@ -48,8 +43,7 @@ public class QuestionFragment extends Fragment {
         mRadioButton2 = (RadioButton) rootView.findViewById(R.id.answer2);
         mRadioButton3 = (RadioButton) rootView.findViewById(R.id.answer3);
         mImageView = (ImageView) rootView.findViewById(R.id.imageView);
-
-
+        buttonAnswer = (Button) rootView.findViewById(R.id.buttonAnswer);
 
         mButtonAnswer.setOnClickListener(new OnClickListener() {
             @Override
@@ -57,7 +51,7 @@ public class QuestionFragment extends Fragment {
                 QuestionFragment.this.showAnswers();
             }
         });
-        buttonAnswer = (Button) rootView.findViewById(R.id.buttonAnswer);
+
         if(lastQuestion){
             buttonAnswer.setVisibility(View.VISIBLE);
         }
@@ -83,12 +77,13 @@ public class QuestionFragment extends Fragment {
             Log.v("TAG", checkedRadioButtonId + "");
             RadioButton viewById = (RadioButton) mRadioGroup.findViewById(checkedRadioButtonId);
             if (viewById != null) {
-                checkAnswer(question.getCorrectAnswer(), viewById.getText().toString());
+                checkAnswer(viewById.getText().toString());
             }
         }
     }
 
-    private void checkAnswer(String answ, String selected) {
+    private void checkAnswer(String selected) {
+        String answ = question.getCorrectAnswer();
         question.setAnswered(true);
         if (answ.equalsIgnoreCase(selected)) {
             question.setAnsweredCorrect(true);
