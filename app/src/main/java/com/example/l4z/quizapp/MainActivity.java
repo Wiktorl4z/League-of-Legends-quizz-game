@@ -5,6 +5,7 @@ import android.os.Bundle;
 import android.support.v4.view.ViewPager;
 import android.support.v7.app.AppCompatActivity;
 import android.view.MenuItem;
+import android.widget.TextView;
 
 import com.example.l4z.quizapp.information.Question;
 
@@ -267,13 +268,19 @@ public class MainActivity extends AppCompatActivity {
         String image;
         if (correct == all) {
             image = "challenger";
+        } else if (correct > all - 2) {
+            image = "diamond";
+        } else if (correct > all - 3) {
+            image = "platinum";
         } else if (correct > all / 2) {
             image = "gold";
+        } else if (correct > all / 4) {
+            image = "bronse";
         } else {
-            image = "bronze";
+            image = "silver";
         }
 
-        list.add("Odpowiedziales poprawnie na " + correct + " pytan z " + all + " zadanych.");
+        list.add("You answered " + correct + " / " + all + " correctly.");
         list.add(image);
         mFinal.putStringArrayListExtra(QUESTIONS_INTENT, list);
         startActivity(mFinal);

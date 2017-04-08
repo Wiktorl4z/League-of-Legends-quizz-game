@@ -23,6 +23,8 @@ public class FinalScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
+        TextView textView = (TextView)findViewById(R.id.text_message);
+
         ArrayList<String> list = getIntent().getExtras().getStringArrayList(QUESTIONS_INTENT);
         pointsGained = (TextView) findViewById(R.id.pointsGained);
         pointsGained.setText(list.get(0));
@@ -30,11 +32,23 @@ public class FinalScreenActivity extends AppCompatActivity {
 
         ImageView imageView = (ImageView) findViewById(R.id.rankImage);
         if (imageName.equals("challenger")) {
+            textView.setText("You are Challenger worth");
             imageView.setImageResource(R.drawable.challenger);
+        } else if (imageName.equals("diamond")) {
+            textView.setText("You are Diamond worth");
+            imageView.setImageResource(R.drawable.diamond);
+        } else if (imageName.equals("platinum")) {
+            textView.setText("You are Platinum worth");
+            imageView.setImageResource(R.drawable.platinum);
         } else if (imageName.equals("gold")) {
-            imageView.setImageResource(R.drawable.gold_rank);
-        } else if (imageName.equals("bronze")) {
-            imageView.setImageResource(R.drawable.bronze_rank);
+            textView.setText("You are Gold worth");
+            imageView.setImageResource(R.drawable.gold);
+        } else if (imageName.equals("bronse")) {
+            textView.setText("You are Bronse worth");
+            imageView.setImageResource(R.drawable.bronse);
+        } else if (imageName.equals("silver")) {
+            textView.setText("You are Silver worth");
+            imageView.setImageResource(R.drawable.silver);
         }
 
         email = (ImageView)findViewById(R.id.emailImage);
