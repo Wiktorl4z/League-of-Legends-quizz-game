@@ -151,64 +151,64 @@ public class MainActivity extends AppCompatActivity {
     }
 
     static {
-        Question questions = new Question(R.drawable.ignite, "What's the name on the spell?", "ignite");
-        questions.addSelection("ignite");
-        questions.addSelection("teleport");
-        questions.addSelection("Barier");
+        Question questions = new Question(R.drawable.ignite, "What's the name on the spell?", "Ignite");
+        questions.addSelection("Ignite");
+        questions.addSelection("Exhaust");
+        questions.addSelection("Smite");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.heal, "What's the name on the spell?", "heal");
-        questions.addSelection("heal");
-        questions.addSelection("teleport");
-        questions.addSelection("Barier");
+        questions = new Question(R.drawable.heal, "What's the name on the spell?", "Heal");
+        questions.addSelection("Mark");
+        questions.addSelection("Heal");
+        questions.addSelection("Dash");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.smite, "What's the name on the spell?", "smite");
-        questions.addSelection("smite");
-        questions.addSelection("teleport");
-        questions.addSelection("Barier");
+        questions = new Question(R.drawable.smite, "What's the name on the spell?", "Smite");
+        questions.addSelection("Smite");
+        questions.addSelection("Flash");
+        questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.dash, "What's the name on the spell?", "dash");
-        questions.addSelection("dash");
-        questions.addSelection("teleport");
-        questions.addSelection("Barier");
+        questions = new Question(R.drawable.dash, "What's the name on the spell?", "Dash");
+        questions.addSelection("Teleport");
+        questions.addSelection("Ghost");
+        questions.addSelection("Dash");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.teleport, "What's the name on the spell?", "teleport");
-        questions.addSelection("dash");
-        questions.addSelection("teleport");
-        questions.addSelection("Barier");
+        questions = new Question(R.drawable.teleport, "What's the name on the spell?", "Teleport");
+        questions.addSelection("Dash");
+        questions.addSelection("Teleport");
+        questions.addSelection("Mark");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.exhaust, "What's the name on the spell?", "exhaust");
-        questions.addSelection("dash");
-        questions.addSelection("teleport");
-        questions.addSelection("exhaust");
+        questions = new Question(R.drawable.exhaust, "What's the name on the spell?", "Exhaust");
+        questions.addSelection("Ignite");
+        questions.addSelection("Clarity");
+        questions.addSelection("Exhaust");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.flash, "What's the name on the spell?", "flash");
-        questions.addSelection("dash");
-        questions.addSelection("teleport");
-        questions.addSelection("flash");
+        questions = new Question(R.drawable.flash, "What's the name on the spell?", "Flash");
+        questions.addSelection("Cleanse");
+        questions.addSelection("Teleport");
+        questions.addSelection("Flash");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.mark, "What's the name on the spell?", "mark");
-        questions.addSelection("mark");
-        questions.addSelection("teleport");
-        questions.addSelection("flash");
+        questions = new Question(R.drawable.mark, "What's the name on the spell?", "Mark");
+        questions.addSelection("Mark");
+        questions.addSelection("Ghost");
+        questions.addSelection("Clarity");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.ghost, "What's the name on the spell?", "ghost");
-        questions.addSelection("mark");
-        questions.addSelection("ghost");
-        questions.addSelection("flash");
+        questions = new Question(R.drawable.ghost, "What's the name on the spell?", "Ghost");
+        questions.addSelection("Smite");
+        questions.addSelection("Ghost");
+        questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.cleanse, "What's the name on the spell?", "cleanse");
-        questions.addSelection("mark");
-        questions.addSelection("ghost");
-        questions.addSelection("cleanse");
+        questions = new Question(R.drawable.cleanse, "What's the name on the spell?", "Cleanse");
+        questions.addSelection("Exhaust");
+        questions.addSelection("Clarity");
+        questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
 
     }
