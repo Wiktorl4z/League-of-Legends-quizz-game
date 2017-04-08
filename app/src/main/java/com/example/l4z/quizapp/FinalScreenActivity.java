@@ -57,7 +57,7 @@ public class FinalScreenActivity extends AppCompatActivity {
             String comment = editText.getText().toString();
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                     "mailto","WiktorKalinowski@email.com", null));
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Wiadomosc Quiz App");
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Quiz App Game");
             intent.putExtra(Intent.EXTRA_TEXT, comment);
             try {
                 startActivity(Intent.createChooser(intent, "Send mail..."));
