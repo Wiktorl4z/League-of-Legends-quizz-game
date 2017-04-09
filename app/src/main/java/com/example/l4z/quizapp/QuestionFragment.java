@@ -2,6 +2,7 @@ package com.example.l4z.quizapp;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
 import android.support.v7.app.AlertDialog;
 import android.util.Log;
@@ -18,11 +19,15 @@ import com.example.l4z.quizapp.information.Question;
 
 public class QuestionFragment extends Fragment {
 
+
+    private static final String questionKey = "question";
+
+
     private Question question;
     private TextView mQuestion;
     private RadioGroup mRadioGroup;
     private RadioButton mRadioButton1,mRadioButton2,mRadioButton3;
-    private Button mButtonAnswer,buttonAnswer;
+    private Button mButtonAnswer;
     private ImageView mImageView;
     private boolean lastQuestion;
 
@@ -43,7 +48,7 @@ public class QuestionFragment extends Fragment {
         mRadioButton2 = (RadioButton) rootView.findViewById(R.id.answer2);
         mRadioButton3 = (RadioButton) rootView.findViewById(R.id.answer3);
         mImageView = (ImageView) rootView.findViewById(R.id.imageView);
-        buttonAnswer = (Button) rootView.findViewById(R.id.buttonAnswer);
+
 
         mButtonAnswer.setOnClickListener(new OnClickListener() {
             @Override
@@ -53,9 +58,12 @@ public class QuestionFragment extends Fragment {
         });
 
         if(lastQuestion){
-            buttonAnswer.setVisibility(View.VISIBLE);
+            mButtonAnswer.setVisibility(View.VISIBLE);
         }
 
+        if (question == null && savedInstanceState != null && savedInstanceState.containsKey(questionKey)) {
+            question = (Question) savedInstanceState.getSerializable(questionKey);
+        }
         mQuestion.setText(question.getQuestion());
         mRadioButton1.setText(question.getQuestions().get(0));
         mRadioButton1.setOnClickListener(listener);
@@ -94,6 +102,24 @@ public class QuestionFragment extends Fragment {
 
     public void setLastQuestion(boolean lastQuestion) {
         this.lastQuestion = lastQuestion;
+    }
+
+
+    @Override
+    public void onSaveInstanceState(Bundle outState) {
+        super.onSaveInstanceState(outState);
+        outState.putSerializable(questionKey, question);
+
+    }
+
+
+    @Override
+    public void onViewStateRestored(@Nullable Bundle savedInstanceState) {
+        super.onViewStateRestored(savedInstanceState);
+
+        if (savedInstanceState != null && savedInstanceState.containsKey(questionKey)) {
+            question = (Question) savedInstanceState.getSerializable(questionKey);
+        }
     }
 }
 

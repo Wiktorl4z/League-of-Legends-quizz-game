@@ -38,13 +38,6 @@ if (hasProperty("teamcity")) {
 	version="0."+vM+"."+vN
 }
 
-
-if (hasProperty("teamcity")) {
-	version="0."+vM+"."+vN+"."+teamcity['build.number']
-} else {
-	version="0."+vM+"."+vN
-}
-
 task javadocJar(type: Jar) {
 	classifier = 'javadoc'
 	from javadoc

@@ -49,4 +49,6 @@ public class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return "QUESTION " + (position + 1);
     }
+
+
 }
