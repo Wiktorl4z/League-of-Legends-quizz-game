@@ -3,30 +3,36 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/main_menu"
+    android:background="@drawable/katarina_main"
     android:gravity="center"
     android:orientation="vertical"
     tools:context="com.example.l4z.quizapp.MainMenu">
 
     <Button
-        android:layout_marginTop="45dp"
+        android:layout_marginRight="60dp"
         android:id="@+id/championButton"
+        android:layout_gravity="center|right"
         android:layout_width="wrap_content"
         android:background="@drawable/my_button"
         android:layout_height="wrap_content"
         android:text="@string/champions" />
 
     <Button
+
+        android:layout_marginRight="60dp"
         android:layout_marginTop="15dp"
         android:id="@+id/itemButton"
+        android:layout_gravity="center|right"
         android:layout_width="wrap_content"
         android:background="@drawable/my_button"
         android:layout_height="wrap_content"
         android:text="@string/Items" />
 
     <Button
+        android:layout_marginRight="60dp"
         android:layout_marginTop="15dp"
         android:id="@+id/spellsButton"
+        android:layout_gravity="center|right"
         android:background="@drawable/my_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"

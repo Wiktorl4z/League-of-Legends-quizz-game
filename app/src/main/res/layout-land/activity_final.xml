@@ -1,0 +1,56 @@
+<?xml version="1.0" encoding="utf-8"?>
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+    android:id="@+id/activity_scene_five"
+    android:layout_width="match_parent"
+    android:layout_height="match_parent"
+    android:background="#000000"
+    android:orientation="vertical">
+
+
+    <TextView
+        android:id="@+id/text_message"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:textColor="#DCF167"
+        android:hint="Good Job"
+        android:text=""
+        android:textSize="30sp" />
+
+    <ImageView
+        android:id="@+id/rankImage"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center" />
+
+    <TextView
+        android:id="@+id/pointsGained"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:layout_gravity="center"
+        android:paddingTop="5dp"
+        android:textColor="#DCF167"
+        android:text=""
+        android:textSize="20sp" />
+
+    <EditText
+
+        android:id="@+id/feedBackText"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColorHint="#DCF167"
+        android:textColor="#DCF167"
+        android:layout_gravity="center|bottom"
+        android:hint="Leave Feedback here!"
+        android:textSize="20dp" />
+
+    <ImageView
+        android:id="@+id/emailImage"
+        android:layout_width="match_parent"
+        android:layout_height="66dp"
+        android:layout_gravity="bottom"
+        android:adjustViewBounds="true"
+        android:onClick="sendEmail"
+        android:src="@drawable/email" />
+
+</LinearLayout>
