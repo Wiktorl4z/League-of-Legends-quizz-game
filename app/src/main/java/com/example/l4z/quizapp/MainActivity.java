@@ -25,61 +25,61 @@ public class MainActivity extends AppCompatActivity {
 
 
     static {
-        Question questions = new Question(R.drawable.jhin, "What's the name on the champion?", "Jhin");
+        Question questions = new Question(R.drawable.jhin, "What's the name of the champion?", "Jhin");
         questions.addSelection("Graves");
         questions.addSelection("Jhin");
         questions.addSelection("Vayne");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.katarina, "What's the name on the champion?", "Katarina");
+        questions = new Question(R.drawable.katarina, "What's the name of the champion?", "Katarina");
         questions.addSelection("Katarina");
         questions.addSelection("Lux");
         questions.addSelection("Diana");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.rengar, "What's the name on the champion?", "Rengar");
+        questions = new Question(R.drawable.rengar, "What's the name of the champion?", "Rengar");
         questions.addSelection("Darius");
         questions.addSelection("Rengar");
         questions.addSelection("Ezreal");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.yasuo, "What's the name on the champion?", "Yasuo");
+        questions = new Question(R.drawable.yasuo, "What's the name of the champion?", "Yasuo");
         questions.addSelection("Yasuo");
         questions.addSelection("Yorick");
         questions.addSelection("Zed");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.ahri, "What's the name on the champion?", "Ahri");
+        questions = new Question(R.drawable.ahri, "What's the name of the champion?", "Ahri");
         questions.addSelection("Ahri");
         questions.addSelection("Zyra");
         questions.addSelection("Tristana");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.aurelio_sol, "What's the name on the champion?", "Aurelion Sol");
+        questions = new Question(R.drawable.aurelio_sol, "What's the name of the champion?", "Aurelion Sol");
         questions.addSelection("Cassiopeia");
         questions.addSelection("Camille");
         questions.addSelection("Aurelion Sol");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.ashe, "What's the name on the champion?", "Ashe");
+        questions = new Question(R.drawable.ashe, "What's the name of the champion?", "Ashe");
         questions.addSelection("Ashe");
         questions.addSelection("Caitlyn");
         questions.addSelection("Akali");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.kog_maw, "What's the name on the champion?", "Kog'Maw");
+        questions = new Question(R.drawable.kog_maw, "What's the name of the champion?", "Kog'Maw");
         questions.addSelection("Malphite");
         questions.addSelection("Kog'Maw");
         questions.addSelection("Nautilus");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.galio, "What's the name on the champion?", "Galio");
+        questions = new Question(R.drawable.galio, "What's the name of the champion?", "Galio");
         questions.addSelection("Kled");
         questions.addSelection("Galio");
         questions.addSelection("Mordekaiser");
         FAKE_CHAMPIONS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.talon, "What's the name on the champion?", "Talon");
+        questions = new Question(R.drawable.talon, "What's the name of the champion?", "Talon");
         questions.addSelection("Olaf");
         questions.addSelection("Nasus");
         questions.addSelection("Talon");
@@ -88,61 +88,61 @@ public class MainActivity extends AppCompatActivity {
     }
 
     static {
-        Question questions = new Question(R.drawable.zonia, "What's the name on the Item?", "Zhonya's Hourglass");
+        Question questions = new Question(R.drawable.zonia, "What's the name of the Item?", "Zhonya's Hourglass");
         questions.addSelection("Zz'Rot Portal");
         questions.addSelection("Zhonya's Hourglass");
         questions.addSelection("Zeke's Harbinger");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.frozen, "What's the name on the Item?", "Frozen Mallet");
+        questions = new Question(R.drawable.frozen, "What's the name of the Item?", "Frozen Mallet");
         questions.addSelection("Frozen Heart");
         questions.addSelection("Frozen Hammer");
         questions.addSelection("Frozen Mallet");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.seraph100, "What's the name on the Item?", "Seraph's Embrace");
+        questions = new Question(R.drawable.seraph100, "What's the name of the Item?", "Seraph's Embrace");
         questions.addSelection("Seraph's Embrace");
         questions.addSelection("Serrated Dirk");
         questions.addSelection("Sheen");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.meja, "What's the name on the Item?", "Mejai's Soulstealer");
+        questions = new Question(R.drawable.meja, "What's the name of the Item?", "Mejai's Soulstealer");
         questions.addSelection("Mercurial Scimitar");
         questions.addSelection("Mikael's Crucible");
         questions.addSelection("Mejai's Soulstealer");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.crystal_scepte, "What's the name on the Item?", "Rylai's Crystal Scepter");
+        questions = new Question(R.drawable.crystal_scepte, "What's the name of the Item?", "Rylai's Crystal Scepter");
         questions.addSelection("Seeker's Armguard");
         questions.addSelection("Rylai's Crystal Scepter");
         questions.addSelection("Redemption");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.gunblade, "What's the name on the Item?", "Hextech Gunblade");
+        questions = new Question(R.drawable.gunblade, "What's the name of the Item?", "Hextech Gunblade");
         questions.addSelection("Iceborn Gauntlet");
         questions.addSelection("Kircheis Shard");
         questions.addSelection("Hextech Gunblade");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.hexdrinker, "What's the name on the Item?", "Hexdrinker");
+        questions = new Question(R.drawable.hexdrinker, "What's the name of the Item?", "Hexdrinker");
         questions.addSelection("Hexdrinker");
         questions.addSelection("Last Whisper");
         questions.addSelection("Lich Bane");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.hunter_potion, "What's the name on the Item?", "Hunter's Potion");
+        questions = new Question(R.drawable.hunter_potion, "What's the name of the Item?", "Hunter's Potion");
         questions.addSelection("Hunter's Potion");
         questions.addSelection("Health Potion");
         questions.addSelection("Refillable Potion");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.void_staff, "What's the name on the Item?", "Void Staff");
+        questions = new Question(R.drawable.void_staff, "What's the name of the Item?", "Void Staff");
         questions.addSelection("Archangel's Staff");
         questions.addSelection("Void Staff");
         questions.addSelection("Vanguard Banner");
         FAKE_ITEM_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.wrath, "What's the name on the Item?", "Elixir of Wrath");
+        questions = new Question(R.drawable.wrath, "What's the name of the Item?", "Elixir of Wrath");
         questions.addSelection("Elixir of Iron");
         questions.addSelection("Elixir of Sorcery");
         questions.addSelection("Elixir of Wrath");
@@ -151,61 +151,61 @@ public class MainActivity extends AppCompatActivity {
     }
 
     static {
-        Question questions = new Question(R.drawable.ignite, "What's the name on the spell?", "Ignite");
+        Question questions = new Question(R.drawable.ignite, "What's the name of the spell?", "Ignite");
         questions.addSelection("Ignite");
         questions.addSelection("Exhaust");
         questions.addSelection("Smite");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.heal, "What's the name on the spell?", "Heal");
+        questions = new Question(R.drawable.heal, "What's the name of the spell?", "Heal");
         questions.addSelection("Mark");
         questions.addSelection("Heal");
         questions.addSelection("Dash");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.smite, "What's the name on the spell?", "Smite");
+        questions = new Question(R.drawable.smite, "What's the name of the spell?", "Smite");
         questions.addSelection("Smite");
         questions.addSelection("Flash");
         questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.dash, "What's the name on the spell?", "Dash");
+        questions = new Question(R.drawable.dash, "What's the name of the spell?", "Dash");
         questions.addSelection("Teleport");
         questions.addSelection("Ghost");
         questions.addSelection("Dash");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.teleport, "What's the name on the spell?", "Teleport");
+        questions = new Question(R.drawable.teleport, "What's the name of the spell?", "Teleport");
         questions.addSelection("Dash");
         questions.addSelection("Teleport");
         questions.addSelection("Mark");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.exhaust, "What's the name on the spell?", "Exhaust");
+        questions = new Question(R.drawable.exhaust, "What's the name of the spell?", "Exhaust");
         questions.addSelection("Ignite");
         questions.addSelection("Clarity");
         questions.addSelection("Exhaust");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.flash, "What's the name on the spell?", "Flash");
+        questions = new Question(R.drawable.flash, "What's the name of the spell?", "Flash");
         questions.addSelection("Cleanse");
         questions.addSelection("Teleport");
         questions.addSelection("Flash");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.mark, "What's the name on the spell?", "Mark");
+        questions = new Question(R.drawable.mark, "What's the name of the spell?", "Mark");
         questions.addSelection("Mark");
         questions.addSelection("Ghost");
         questions.addSelection("Clarity");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.ghost, "What's the name on the spell?", "Ghost");
+        questions = new Question(R.drawable.ghost, "What's the name of the spell?", "Ghost");
         questions.addSelection("Smite");
         questions.addSelection("Ghost");
         questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        questions = new Question(R.drawable.cleanse, "What's the name on the spell?", "Cleanse");
+        questions = new Question(R.drawable.cleanse, "What's the name of the spell?", "Cleanse");
         questions.addSelection("Exhaust");
         questions.addSelection("Clarity");
         questions.addSelection("Cleanse");
