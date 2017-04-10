@@ -56,7 +56,7 @@ public class FinalScreenActivity extends AppCompatActivity {
             EditText editText = (EditText) findViewById(R.id.feedBackText);
             String comment = editText.getText().toString();
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto","WiktorKalinowski@email.com", null));
+                    "mailto","WiktorKalinowski@gmail.com", null));
             intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Quiz App Game");
             intent.putExtra(Intent.EXTRA_TEXT, comment);
             try {
