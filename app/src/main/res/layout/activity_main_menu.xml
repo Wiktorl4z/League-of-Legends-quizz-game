@@ -8,6 +8,15 @@
     android:orientation="vertical"
     tools:context="com.example.l4z.quizapp.MainMenu">
 
+
+    <EditText
+        android:id="@+id/edit_text_main"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:textColor="#DCF167"
+        android:textColorHint="#DCF167"
+        android:hint="Put your name HERE" />
+
     <Button
         android:layout_marginTop="45dp"
         android:id="@+id/championButton"

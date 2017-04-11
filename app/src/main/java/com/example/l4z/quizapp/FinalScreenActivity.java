@@ -1,10 +1,14 @@
 package com.example.l4z.quizapp;
 
+import android.content.Context;
 import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
+import android.view.Gravity;
+import android.view.LayoutInflater;
 import android.view.View;
+import android.view.ViewGroup;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -66,5 +70,13 @@ public class FinalScreenActivity extends AppCompatActivity {
             }
             startActivity(Intent.createChooser(intent, "Choose an Email client :"));
         });
+
+        Context context = getApplicationContext();
+        String name = MainMenu.getUserName();
+        CharSequence text = "Hello " + name + "!";
+        int duration = Toast.LENGTH_SHORT;
+
+        Toast toast = Toast.makeText(context, name, duration);
+        toast.show();
     }
 }

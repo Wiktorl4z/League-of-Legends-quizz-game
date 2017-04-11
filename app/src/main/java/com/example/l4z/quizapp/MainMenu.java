@@ -4,16 +4,24 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.widget.Button;
+import android.widget.EditText;
 
 public class MainMenu extends AppCompatActivity {
 
+    private static String userName;
     Button championButton, itemButton, spellsButton;
+    EditText editText;
+
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
+
+
+        editText = (EditText) findViewById(R.id.edit_text_main);
+        userName = editText.getText().toString();
 
         championButton = (Button) findViewById(R.id.championButton);
         championButton.setOnClickListener(v -> {
@@ -33,7 +41,11 @@ public class MainMenu extends AppCompatActivity {
 
     private void startQuiz(byte b) {
         Intent intent = new Intent(MainMenu.this, MainActivity.class);
-        intent.putExtra(MainActivity.PRESSED_BUTTON_KEY,b);
+        intent.putExtra(MainActivity.PRESSED_BUTTON_KEY, b);
         MainMenu.this.startActivity(intent);
+    }
+
+    public static String getUserName() {
+        return userName;
     }
 }
