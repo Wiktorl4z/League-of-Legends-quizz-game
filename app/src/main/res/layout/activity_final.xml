@@ -3,7 +3,7 @@
     android:id="@+id/activity_scene_five"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#000000"
+    android:background="@color/colorDark"
     android:orientation="vertical">
 
     <LinearLayout
@@ -19,7 +19,7 @@
             android:layout_height="wrap_content"
             android:hint="Good Job"
             android:text=""
-            android:textColor="#DCF167"
+            android:textColor="@color/colorYellow"
             android:textSize="30sp" />
 
         <ImageView
@@ -33,7 +33,7 @@
             android:layout_height="wrap_content"
             android:paddingTop="5dp"
             android:text=""
-            android:textColor="#DCF167"
+            android:textColor="@color/colorYellow"
             android:textSize="20sp" />
 
     </LinearLayout>
@@ -50,8 +50,8 @@
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:hint="Leave Feedback here!"
-            android:textColor="#DCF167"
-            android:textColorHint="#DCF167"
+            android:textColor="@color/colorYellow"
+            android:textColorHint="@color/colorYellow"
             android:textSize="20dp" />
 
         <ImageView

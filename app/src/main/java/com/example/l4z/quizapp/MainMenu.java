@@ -18,7 +18,7 @@ public class MainMenu extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main_menu);
-        
+
         editText = (EditText) findViewById(R.id.edit_text_main);
         championButton = (Button) findViewById(R.id.championButton);
         championButton.setOnClickListener(v -> {

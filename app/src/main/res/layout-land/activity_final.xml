@@ -12,7 +12,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center"
-        android:textColor="#DCF167"
+        android:textColor="@color/colorYellow"
         android:hint="Good Job"
         android:text=""
         android:textSize="30sp" />
@@ -29,7 +29,7 @@
         android:layout_height="wrap_content"
         android:layout_gravity="center"
         android:paddingTop="5dp"
-        android:textColor="#DCF167"
+        android:textColor="@color/colorYellow"
         android:text=""
         android:textSize="20sp" />
 
@@ -38,7 +38,7 @@
         android:id="@+id/feedBackText"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColorHint="#DCF167"
+        android:textColorHint="@color/colorYellow"
         android:textColor="#DCF167"
         android:layout_gravity="center|bottom"
         android:hint="Leave Feedback here!"

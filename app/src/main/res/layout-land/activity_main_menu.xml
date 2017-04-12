@@ -13,10 +13,10 @@
         android:id="@+id/edit_text_main"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:textColor="#DCF167"
-        android:textColorHint="#DCF167"
+        android:textColor="@color/colorYellow"
+        android:textColorHint="@color/colorYellow"
         android:hint="Put your name HERE"
-        android:textColorHighlight="#DCF167"/>
+        android:textColorHighlight="@color/colorYellow"/>
 
 
 
