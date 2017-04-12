@@ -13,7 +13,6 @@
         android:layout_height="match_parent"
         android:adjustViewBounds="true"
         android:background="@color/colorDark"
-        android:onClick="onImageClick"
         android:src="@drawable/main" />
 
 </LinearLayout>
