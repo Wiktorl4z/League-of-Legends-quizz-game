@@ -22,6 +22,7 @@ public class MainActivity extends AppCompatActivity {
     private static final List<Question> FAKE_SPELLS_QUESTION = new ArrayList<>();
     private static MainActivity instance;
     public static final String PRESSED_BUTTON_KEY = "mainMenuButton";
+    String userName;
 
 
     static {
@@ -218,6 +219,7 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         instance = this;
 
+        userName = getIntent().getExtras().getString(MainMenu.KOX);
         setContentView(R.layout.activity_main);
         byte b = getIntent().getExtras().getByte(PRESSED_BUTTON_KEY);
         switch (b) {
@@ -249,6 +251,7 @@ public class MainActivity extends AppCompatActivity {
 
     public void showFinalScreen() {
         Intent mFinal = new Intent(this, FinalScreenActivity.class);
+        mFinal.putExtra(MainMenu.KOX, userName);
 
         List<Question> questions = mQuestionCollectionPagerAdapter.getQuestions();
         ArrayList<String> list = new ArrayList<String>();

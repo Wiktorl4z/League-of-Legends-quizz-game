@@ -10,9 +10,10 @@ import android.widget.EditText;
 
 public class MainMenu extends AppCompatActivity {
 
-    private static String userName;
+    public static final String KOX = "userName";
     Button championButton, itemButton, spellsButton;
     EditText editText;
+
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -20,6 +21,7 @@ public class MainMenu extends AppCompatActivity {
         setContentView(R.layout.activity_main_menu);
 
         editText = (EditText) findViewById(R.id.edit_text_main);
+
         championButton = (Button) findViewById(R.id.championButton);
         championButton.setOnClickListener(v -> {
             startQuiz((byte) 0);
@@ -34,32 +36,12 @@ public class MainMenu extends AppCompatActivity {
         spellsButton.setOnClickListener(v -> {
             startQuiz((byte) 2);
         });
-
-        editText.addTextChangedListener(new TextWatcher() {
-            @Override
-            public void beforeTextChanged(CharSequence s, int start, int count, int after) {
-
-            }
-
-            @Override
-            public void onTextChanged(CharSequence s, int start, int before, int count) {
-
-            }
-
-            @Override
-            public void afterTextChanged(Editable s) {
-                userName = editText.getText().toString();
-            }
-        });
     }
 
     private void startQuiz(byte b) {
         Intent intent = new Intent(MainMenu.this, MainActivity.class);
         intent.putExtra(MainActivity.PRESSED_BUTTON_KEY, b);
+        intent.putExtra(MainMenu.KOX, editText.getText().toString());
         MainMenu.this.startActivity(intent);
-    }
-
-    public static String getUserName() {
-        return userName;
     }
 }

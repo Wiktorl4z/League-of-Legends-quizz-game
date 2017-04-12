@@ -9,6 +9,7 @@ import android.view.Gravity;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
@@ -19,22 +20,38 @@ import static com.example.l4z.quizapp.MainActivity.QUESTIONS_INTENT;
 
 public class FinalScreenActivity extends AppCompatActivity {
 
-    TextView pointsGained;
-    ImageView email;
+    TextView pointsGained, textView;
+    ImageView email, imageView;
+    CheckBox checkBox;
+    String feedback, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
-        TextView textView = (TextView)findViewById(R.id.text_message);
+
+        userName = getIntent().getExtras().getString(MainMenu.KOX);
+
+        textView = (TextView)findViewById(R.id.text_message);
+        checkBox = (CheckBox)findViewById(R.id.checkBox);
+        checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
+            if (isChecked) {
+                feedback = "I want more!";
+            } else{
+                feedback = "";
+            }
+        });
+
+
+
 
         ArrayList<String> list = getIntent().getExtras().getStringArrayList(QUESTIONS_INTENT);
         pointsGained = (TextView) findViewById(R.id.pointsGained);
         pointsGained.setText(list.get(0));
         String imageName = list.get(1);
 
-        ImageView imageView = (ImageView) findViewById(R.id.rankImage);
+        imageView = (ImageView) findViewById(R.id.rankImage);
         if (imageName.equals("challenger")) {
             textView.setText("You are Challenger worth");
             imageView.setImageResource(R.drawable.challenger);
@@ -59,10 +76,11 @@ public class FinalScreenActivity extends AppCompatActivity {
         email.setOnClickListener((View.OnClickListener) v -> {
             EditText editText = (EditText) findViewById(R.id.feedBackText);
             String comment = editText.getText().toString();
+            String commentLike = comment + " " + feedback;
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
                     "mailto","WiktorKalinowski@gmail.com", null));
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Quiz App Game");
-            intent.putExtra(Intent.EXTRA_TEXT, comment);
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Quiz App Game from " );
+            intent.putExtra(Intent.EXTRA_TEXT, commentLike);
             try {
                 startActivity(Intent.createChooser(intent, "Send mail..."));
             } catch (android.content.ActivityNotFoundException ex) {
@@ -72,11 +90,13 @@ public class FinalScreenActivity extends AppCompatActivity {
         });
 
         Context context = getApplicationContext();
-        String name = MainMenu.getUserName();
-        CharSequence text = "Hello " + name + "!";
+        CharSequence text = "Good game " + userName + "!";
         int duration = Toast.LENGTH_SHORT;
 
-        Toast toast = Toast.makeText(context, name, duration);
+        Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
+
+
+
 }
