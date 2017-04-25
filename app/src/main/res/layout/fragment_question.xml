@@ -7,11 +7,11 @@
     android:weightSum="3">
 
     <ImageView
-        android:background="@color/colorDark"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
         android:layout_height="match_parent"
         android:layout_weight="1"
+        android:background="@color/colorDark"
         android:src="@drawable/lissandra" />
 
     <LinearLayout
@@ -30,7 +30,7 @@
             android:layout_height="wrap_content"
             android:gravity="center"
             android:paddingTop="10dp"
-            android:text="_________________"
+            android:text="@string/___"
             android:textSize="@dimen/textQuestionSize" />
 
         <View
@@ -48,19 +48,19 @@
                 android:id="@+id/answer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="___________" />
+                android:text="@string/_" />
 
             <RadioButton
                 android:id="@+id/answer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="___________" />
+                android:text="@string/_" />
 
             <RadioButton
                 android:id="@+id/answer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="___________" />
+                android:text="@string/_" />
         </RadioGroup>
 
         <LinearLayout
@@ -75,7 +75,7 @@
                 android:layout_height="wrap_content"
                 android:layout_gravity="left"
                 android:layout_weight="1"
-                android:text="Check Scores"
+                android:text="@string/check_score"
                 android:visibility="invisible" />
         </LinearLayout>
     </LinearLayout>

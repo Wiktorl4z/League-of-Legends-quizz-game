@@ -9,6 +9,8 @@ import java.util.ArrayList;
 
 public class FinalScoreTable extends AppCompatActivity {
 
+    // CLASS IS NOT IN USE! DONT CHECK
+
     private ArrayList<String[]> ScoreTableArrayList = new ArrayList<String[]>();
     public String[] ScoreTableArray = new String[2]; // Use this string to seperate
     public String[] ScoreTableArray2 = new String[2]; // Use this st

@@ -16,4 +16,14 @@
     <string name="Items">items</string>
     <string name="Spells">spells</string>
     <string name="check_scores">Check Scores</string>
+    <string name="put_your_name_here">Put your name HERE</string>
+    <string name="put_your_here">Put your name HERE</string>
+    <string name="do_you_want_more">Do you want more?</string>
+    <string name="send_feedback">Send Feedback!</string>
+    <string name="___">_________________</string>
+    <string name="_">___________</string>
+    <string name="check_score">Check Scores</string>
+    <string name="leave_feedback_here">Leave Feedback here!</string>
+    <string name="do_you_want_moe">Do you want more?</string>
+    <string name="good_job">Good Job</string>
 </resources>

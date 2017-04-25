@@ -7,7 +7,6 @@
     android:background="@drawable/main_screen_ziean"
     tools:context="com.example.l4z.quizapp.MainActivity">
 
-        
     <ImageView
         android:id="@+id/mainImage"
         android:layout_width="match_parent"

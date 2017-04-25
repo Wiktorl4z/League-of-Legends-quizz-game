@@ -24,7 +24,6 @@
         android:layout_weight="0.5"
         android:orientation="vertical">
 
-
         <TextView
             android:id="@+id/questionID"
             android:layout_width="wrap_content"
@@ -49,19 +48,19 @@
                 android:id="@+id/answer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="___________" />
+                android:text="@string/_"  />
 
             <RadioButton
                 android:id="@+id/answer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="___________" />
+                android:text="@string/_"  />
 
             <RadioButton
                 android:id="@+id/answer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="___________" />
+                android:text="@string/_"  />
         </RadioGroup>
 
         <LinearLayout

@@ -6,7 +6,6 @@
     android:layout_height="match_parent"
     tools:context="com.example.l4z.quizapp.MainActivity">
 
-
     <ImageView
         android:id="@+id/mainImage"
         android:layout_width="match_parent"
@@ -14,5 +13,4 @@
         android:adjustViewBounds="true"
         android:background="@color/colorDark"
         android:src="@drawable/main" />
-
 </LinearLayout>

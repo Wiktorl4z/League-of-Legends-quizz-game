@@ -43,6 +43,9 @@ import java.util.Map;
 
 public class TinyDB {
 
+
+    // CLASS IS NOT IN USE! DONT CHECK
+
     private SharedPreferences preferences;
     private String DEFAULT_APP_IMAGEDATA_DIRECTORY;
     private String lastImagePath = "";
