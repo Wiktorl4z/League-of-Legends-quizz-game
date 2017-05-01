@@ -3,8 +3,6 @@ package com.example.l4z.quizapp;
 import android.content.Intent;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.text.Editable;
-import android.text.TextWatcher;
 import android.widget.Button;
 import android.widget.EditText;
 
@@ -13,7 +11,6 @@ public class MainMenu extends AppCompatActivity {
     public static final String KOX = "userName";
     Button championButton, itemButton, spellsButton;
     EditText editText;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

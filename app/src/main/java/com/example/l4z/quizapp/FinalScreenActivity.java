@@ -5,15 +5,13 @@ import android.content.Intent;
 import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
-import android.view.Gravity;
-import android.view.LayoutInflater;
 import android.view.View;
-import android.view.ViewGroup;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
+
 import java.util.ArrayList;
 
 import static com.example.l4z.quizapp.MainActivity.QUESTIONS_INTENT;
@@ -30,21 +28,17 @@ public class FinalScreenActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_final);
 
-
         userName = getIntent().getExtras().getString(MainMenu.KOX);
 
-        textView = (TextView)findViewById(R.id.text_message);
-        checkBox = (CheckBox)findViewById(R.id.checkBox);
+        textView = (TextView) findViewById(R.id.text_message);
+        checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
             if (isChecked) {
                 feedback = "I want more!";
-            } else{
+            } else {
                 feedback = "";
             }
         });
-
-
-
 
         ArrayList<String> list = getIntent().getExtras().getStringArrayList(QUESTIONS_INTENT);
         pointsGained = (TextView) findViewById(R.id.pointsGained);
@@ -72,14 +66,14 @@ public class FinalScreenActivity extends AppCompatActivity {
             imageView.setImageResource(R.drawable.silver);
         }
 
-        email = (ImageView)findViewById(R.id.emailImage);
+        email = (ImageView) findViewById(R.id.emailImage);
         email.setOnClickListener((View.OnClickListener) v -> {
             EditText editText = (EditText) findViewById(R.id.feedBackText);
             String comment = editText.getText().toString();
             String commentLike = comment + " " + feedback;
             Intent intent = new Intent(Intent.ACTION_SENDTO, Uri.fromParts(
-                    "mailto","WiktorKalinowski@gmail.com", null));
-            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Quiz App Game from " );
+                    "mailto", "WiktorKalinowski@gmail.com", null));
+            intent.putExtra(Intent.EXTRA_SUBJECT, "Feedback Quiz App Game from ");
             intent.putExtra(Intent.EXTRA_TEXT, commentLike);
             try {
                 startActivity(Intent.createChooser(intent, "Send mail..."));
@@ -96,7 +90,4 @@ public class FinalScreenActivity extends AppCompatActivity {
         Toast toast = Toast.makeText(context, text, duration);
         toast.show();
     }
-
-
-
 }

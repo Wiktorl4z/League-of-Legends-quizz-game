@@ -1,10 +1,8 @@
 package com.example.l4z.quizapp;
 
-import android.content.Intent;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
-import android.support.v7.app.AlertDialog;
 import android.util.Log;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -15,18 +13,17 @@ import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
 import android.widget.TextView;
+
 import com.example.l4z.quizapp.information.Question;
 
 public class QuestionFragment extends Fragment {
 
-
     private static final String questionKey = "question";
-
 
     private Question question;
     private TextView mQuestion;
     private RadioGroup mRadioGroup;
-    private RadioButton mRadioButton1,mRadioButton2,mRadioButton3;
+    private RadioButton mRadioButton1, mRadioButton2, mRadioButton3;
     private Button mButtonAnswer;
     private ImageView mImageView;
     private boolean lastQuestion;
@@ -49,7 +46,6 @@ public class QuestionFragment extends Fragment {
         mRadioButton3 = (RadioButton) rootView.findViewById(R.id.answer3);
         mImageView = (ImageView) rootView.findViewById(R.id.imageView);
 
-
         mButtonAnswer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -57,7 +53,7 @@ public class QuestionFragment extends Fragment {
             }
         });
 
-        if(lastQuestion){
+        if (lastQuestion) {
             mButtonAnswer.setVisibility(View.VISIBLE);
         }
 
@@ -104,14 +100,11 @@ public class QuestionFragment extends Fragment {
         this.lastQuestion = lastQuestion;
     }
 
-
     @Override
     public void onSaveInstanceState(Bundle outState) {
         super.onSaveInstanceState(outState);
         outState.putSerializable(questionKey, question);
-
     }
-
 
     @Override
     public void onViewStateRestored(@Nullable Bundle savedInstanceState) {

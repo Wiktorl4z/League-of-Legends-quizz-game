@@ -3,20 +3,16 @@ package com.example.l4z.quizapp;
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
-import android.widget.Button;
 
 import com.example.l4z.quizapp.information.Question;
 
 import java.util.List;
-
 
 /**
  * A {@link android.support.v4.app.FragmentStatePagerAdapter} that returns a fragment
  * representing an object in the collection.
  */
 public class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
-
-    Button buttonAnswer;
 
     private final List<Question> questions;
 
@@ -49,6 +45,4 @@ public class QuestionCollectionPagerAdapter extends FragmentStatePagerAdapter {
     public CharSequence getPageTitle(int position) {
         return "QUESTION " + (position + 1);
     }
-
-
 }

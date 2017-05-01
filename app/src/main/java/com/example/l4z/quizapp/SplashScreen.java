@@ -6,7 +6,7 @@ import android.content.Intent;
 import android.os.Bundle;
 import android.util.Log;
 
-public class SplashScreen extends Activity{
+public class SplashScreen extends Activity {
 
     private static final int CZAS = 2000;
 
@@ -30,7 +30,7 @@ public class SplashScreen extends Activity{
                 Log.e("SplashScreen", e.getMessage());
             }
 
-            Intent intent = new Intent(SplashScreen.this,  MainMenu.class);
+            Intent intent = new Intent(SplashScreen.this, MainMenu.class);
             SplashScreen.this.startActivity(intent);
             SplashScreen.this.finish();
         }
