@@ -6,7 +6,7 @@
     android:background="@drawable/katarina_main"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.l4z.quizapp.MainMenu">
+    tools:context="com.example.l4z.quizapp.activitys.MainMenu">
 
     <EditText
         android:id="@+id/edit_text_main"

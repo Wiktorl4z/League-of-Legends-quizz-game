@@ -1,4 +1,4 @@
-package com.example.l4z.quizapp;
+package com.example.l4z.quizapp.activitys;
 
 import android.content.Context;
 import android.content.Intent;
@@ -6,21 +6,25 @@ import android.net.Uri;
 import android.os.Bundle;
 import android.support.v7.app.AppCompatActivity;
 import android.view.View;
+import android.widget.Button;
 import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
+import com.example.l4z.quizapp.R;
+
 import java.util.ArrayList;
 
-import static com.example.l4z.quizapp.MainActivity.QUESTIONS_INTENT;
+import static com.example.l4z.quizapp.activitys.MainActivity.QUESTIONS_INTENT;
 
 public class FinalScreenActivity extends AppCompatActivity {
 
     TextView pointsGained, textView;
     ImageView email, imageView;
     CheckBox checkBox;
+    Button playAgainButton;
     String feedback, userName;
 
     @Override
@@ -29,7 +33,14 @@ public class FinalScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final);
 
         userName = getIntent().getExtras().getString(MainMenu.KOX);
+        playAgainButton = (Button)findViewById(R.id.playAgainButton);
+        playAgainButton.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View v) {
+                startActivity(new Intent(FinalScreenActivity.this, MainMenu.class));
 
+            }
+        });
         textView = (TextView) findViewById(R.id.text_message);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -84,7 +95,8 @@ public class FinalScreenActivity extends AppCompatActivity {
         });
 
         Context context = getApplicationContext();
-        CharSequence text = "Good game " + userName + "!";
+        CharSequence text = "Good game " + userName + "!" + "\nYour score:  " + list.get(0) + " out of 10.";
+
         int duration = Toast.LENGTH_SHORT;
 
         Toast toast = Toast.makeText(context, text, duration);

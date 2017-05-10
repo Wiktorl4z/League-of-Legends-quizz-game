@@ -1,10 +1,11 @@
-package com.example.l4z.quizapp;
+package com.example.l4z.quizapp.question;
 
 import android.support.v4.app.Fragment;
 import android.support.v4.app.FragmentManager;
 import android.support.v4.app.FragmentStatePagerAdapter;
 
-import com.example.l4z.quizapp.information.Question;
+import com.example.l4z.quizapp.question.Question;
+import com.example.l4z.quizapp.question.QuestionFragment;
 
 import java.util.List;
 

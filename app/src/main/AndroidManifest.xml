@@ -7,15 +7,17 @@
     android:icon="@mipmap/ic_launcher"
     android:supportsRtl="true"
     android:theme="@style/AppTheme">
-        <activity android:name=".SplashScreen">
+        <activity android:name=".activitys.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
 
                 <category android:name="android.intent.category.LAUNCHER" />
             </intent-filter>
         </activity>
-        <activity android:name=".MainMenu" />
-        <activity android:name=".MainActivity" />
-        <activity android:name=".FinalScreenActivity" />
+        <activity android:name=".activitys.MainMenu" />
+        <activity android:name=".activitys.MainActivity" />
+        <activity android:name=".activitys.FinalScreenActivity" />
+
+
     </application>
 </manifest>

@@ -6,7 +6,7 @@
     android:background="@drawable/main_menu"
     android:gravity="center"
     android:orientation="vertical"
-    tools:context="com.example.l4z.quizapp.MainMenu">
+    tools:context="com.example.l4z.quizapp.activitys.MainMenu">
 
 
     <EditText

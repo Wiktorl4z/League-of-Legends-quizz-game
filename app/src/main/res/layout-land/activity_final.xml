@@ -61,6 +61,12 @@
                 android:onClick="sendEmail"
                 android:src="@drawable/email" />
 
+            <Button
+                android:id="@+id/playAgainButton"
+                android:text="@string/try_again"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content" />
+
         </LinearLayout>
 
         <LinearLayout
