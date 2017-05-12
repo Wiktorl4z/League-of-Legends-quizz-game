@@ -95,7 +95,7 @@ public class FinalScreenActivity extends AppCompatActivity {
         });
 
         Context context = getApplicationContext();
-        CharSequence text = "Good game " + userName + "!" + "\nYour score:  " + list.get(0) + " out of 10.";
+        CharSequence text = "Good game " + userName + "!" + "\nYour score:  " + list.get(0) + " out of 12.";
 
         int duration = Toast.LENGTH_SHORT;
 

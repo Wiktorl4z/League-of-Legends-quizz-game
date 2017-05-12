@@ -48,4 +48,8 @@ public abstract class Question implements Serializable {
     public abstract String getAnswer();
 
     public abstract String getAnswer(int i);
+
+    public String[] getCorrectAnswers(){
+        return correctAnswers;
+    }
 }

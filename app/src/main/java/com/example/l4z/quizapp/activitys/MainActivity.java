@@ -89,6 +89,16 @@ public class MainActivity extends AppCompatActivity {
         questions.addSelection("Nasus");
         questions.addSelection("Talon");
         FAKE_CHAMPIONS_QUESTION.add(questions);
+
+        CheckBoxQuestion checkBoxQuestion = new CheckBoxQuestion(R.drawable.demacia, "Which champions are from Demacia", "Jarvan IV", "Xin Zao");
+        checkBoxQuestion.addSelection("Vayne");
+        checkBoxQuestion.addSelection("Jarvan IV");
+        checkBoxQuestion.addSelection("Zed");
+        checkBoxQuestion.addSelection("Xin Zao");
+        FAKE_CHAMPIONS_QUESTION.add(checkBoxQuestion);
+
+        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.annie, "What's the name of the champion?", "annie");
+        FAKE_CHAMPIONS_QUESTION.add(entryQuestion);
     }
 
     static {
@@ -152,14 +162,14 @@ public class MainActivity extends AppCompatActivity {
         questions.addSelection("Elixir of Wrath");
         FAKE_ITEM_QUESTION.add(questions);
 
-        CheckBoxQuestion checkBoxQuestion = new CheckBoxQuestion(R.drawable.hunter_potion, "Nowe pytanie odpowiedz 1 i 2 correct", "Odp1", "Odp2");
-        checkBoxQuestion.addSelection("Odp1");
-        checkBoxQuestion.addSelection("Odp3");
-        checkBoxQuestion.addSelection("Odp2");
-        checkBoxQuestion.addSelection("Odp4");
+        CheckBoxQuestion checkBoxQuestion = new CheckBoxQuestion(R.drawable.spellvamp, "Which of those items have spellvamp", "Hextech Gunblade", "Maw of Malmortius");
+        checkBoxQuestion.addSelection("Hextech Gunblade");
+        checkBoxQuestion.addSelection("Infinity Edge");
+        checkBoxQuestion.addSelection("Essence Reaver");
+        checkBoxQuestion.addSelection("Maw of Malmortius");
         FAKE_ITEM_QUESTION.add(checkBoxQuestion);
 
-        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.kog_maw, "Znasz tego pieska?", "kog maw");
+        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.phantom_dancer, "What's the name of the Item?", "phantom dancer");
         FAKE_ITEM_QUESTION.add(entryQuestion);
     }
 
@@ -223,6 +233,16 @@ public class MainActivity extends AppCompatActivity {
         questions.addSelection("Clarity");
         questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
+
+        CheckBoxQuestion checkBoxQuestion = new CheckBoxQuestion(R.drawable.aram, "Which spells you can use on ARAM", "Flash", "Ghost", "Mark");
+        checkBoxQuestion.addSelection("Flash");
+        checkBoxQuestion.addSelection("Teleport");
+        checkBoxQuestion.addSelection("Ghost");
+        checkBoxQuestion.addSelection("Mark");
+        FAKE_SPELLS_QUESTION.add(checkBoxQuestion);
+
+        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.clairvoyance, "Can you write name of this spell?", "clairvoyance");
+        FAKE_SPELLS_QUESTION.add(entryQuestion);
 
     }
 

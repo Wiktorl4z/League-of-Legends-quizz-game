@@ -3,6 +3,8 @@ package com.example.l4z.quizapp.question;
 import android.os.Bundle;
 import android.support.annotation.Nullable;
 import android.support.v4.app.Fragment;
+import android.text.Editable;
+import android.text.TextWatcher;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.View.OnClickListener;
@@ -17,6 +19,10 @@ import android.widget.TextView;
 
 import com.example.l4z.quizapp.R;
 import com.example.l4z.quizapp.activitys.MainActivity;
+
+import java.io.StringBufferInputStream;
+import java.util.Arrays;
+import java.util.List;
 
 public class QuestionFragment extends Fragment {
 
@@ -93,7 +99,22 @@ public class QuestionFragment extends Fragment {
             checkbox4.setText(question.getAnswer(4));
             checkbox4.setOnClickListener(listener);
         } else if (question instanceof EntryQuestion) {
-            editText.setOnClickListener(listener);
+            editText.addTextChangedListener(new TextWatcher() {
+                @Override
+                public void beforeTextChanged(CharSequence s, int start, int count, int after) {
+
+                }
+
+                @Override
+                public void onTextChanged(CharSequence s, int start, int before, int count) {
+                    onAnswerClick(editText);
+                }
+
+                @Override
+                public void afterTextChanged(Editable s) {
+
+                }
+            });
         } else {
             mRadioButton1.setText(question.getAnswer(1));
             mRadioButton1.setOnClickListener(listener);
@@ -127,33 +148,41 @@ public class QuestionFragment extends Fragment {
     }
 
     private void checkAnswerEntry() {
-        if (editText.getText() == null || editText.getText().length() == 0){
+        Editable text = editText.getText();
+        if (text == null || text.length() == 0) {
             question.setAnswered(false);
             question.setAnsweredCorrect(false);
+        } else {
+            String textString = text.toString().toLowerCase();
+            question.setAnswered(true);
+            question.setAnsweredCorrect(question.getCorrectAnswer().contentEquals(textString));
         }
-        question.setAnswered(true);
-        question.setAnsweredCorrect(question.getCorrectAnswer().equals(editText.getText()));
     }
 
     private void checkAnswerCheckBox() {
         CheckBoxQuestion q = (CheckBoxQuestion) question;
         boolean[] correct = new boolean[4];
-        if (q.getCorrectAnswers().contains(checkbox1.getText())) {
+        String t1 = checkbox1.getText().toString();
+        List<String> correctAnswers = Arrays.asList(q.getCorrectAnswers());
+        if (correctAnswers.contains(t1)) {
             correct[0] = checkbox1.isChecked();
         } else {
             correct[0] = !checkbox1.isChecked();
         }
-        if (q.getCorrectAnswers().contains(checkbox2.getText())) {
+        String t2 = checkbox2.getText().toString();
+        if (correctAnswers.contains(t2)) {
             correct[1] = checkbox2.isChecked();
         } else {
             correct[1] = !checkbox2.isChecked();
         }
-        if (q.getCorrectAnswers().contains(checkbox3.getText())) {
+        String t3 = checkbox3.getText().toString();
+        if (correctAnswers.contains(t3)) {
             correct[2] = checkbox3.isChecked();
         } else {
             correct[2] = !checkbox3.isChecked();
         }
-        if (q.getCorrectAnswers().contains(checkbox4.getText())) {
+        String t4 = checkbox4.getText().toString();
+        if (correctAnswers.contains(t4)) {
             correct[3] = checkbox4.isChecked();
         } else {
             correct[3] = !checkbox4.isChecked();

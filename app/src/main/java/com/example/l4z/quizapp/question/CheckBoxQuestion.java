@@ -31,7 +31,5 @@ public class CheckBoxQuestion extends Question {
         return answers;
     }
 
-    public List<String> getCorrectAnswers() {
-        return answers;
-    }
 }
+
