@@ -23,6 +23,7 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:layout_gravity="center|right"
+        android:enabled="false"
         android:layout_marginRight="60dp"
         android:background="@drawable/my_button"
         android:text="@string/champions" />
@@ -31,6 +32,7 @@
 
         android:id="@+id/itemButton"
         android:layout_width="wrap_content"
+        android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_gravity="center|right"
         android:layout_marginRight="60dp"
@@ -41,6 +43,7 @@
     <Button
         android:id="@+id/spellsButton"
         android:layout_width="wrap_content"
+        android:enabled="false"
         android:layout_height="wrap_content"
         android:layout_gravity="center|right"
         android:layout_marginRight="60dp"

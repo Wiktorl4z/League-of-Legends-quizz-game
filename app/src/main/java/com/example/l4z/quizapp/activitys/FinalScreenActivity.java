@@ -33,7 +33,7 @@ public class FinalScreenActivity extends AppCompatActivity {
         setContentView(R.layout.activity_final);
 
         userName = getIntent().getExtras().getString(MainMenu.KOX);
-        playAgainButton = (Button)findViewById(R.id.playAgainButton);
+        playAgainButton = (Button) findViewById(R.id.playAgainButton);
         playAgainButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -41,6 +41,7 @@ public class FinalScreenActivity extends AppCompatActivity {
 
             }
         });
+
         textView = (TextView) findViewById(R.id.text_message);
         checkBox = (CheckBox) findViewById(R.id.checkBox);
         checkBox.setOnCheckedChangeListener((buttonView, isChecked) -> {
@@ -68,7 +69,7 @@ public class FinalScreenActivity extends AppCompatActivity {
             imageView.setImageResource(R.drawable.platinum);
         } else if (imageName.equals("gold")) {
             textView.setText("You are Gold worth");
-            imageView.setImageResource(R.drawable.gold);
+            imageView.setImageResource(R.drawable.gold_rank);
         } else if (imageName.equals("bronse")) {
             textView.setText("You are Bronse worth");
             imageView.setImageResource(R.drawable.bronse);

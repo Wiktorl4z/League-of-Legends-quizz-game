@@ -6,11 +6,11 @@
     android:orientation="horizontal">
 
     <ImageView
-        android:background="@color/colorDark"
         android:id="@+id/imageView"
         android:layout_width="match_parent"
+        android:layout_height="match_parent"
         android:layout_weight="0.5"
-        android:layout_height="wrap_content"
+        android:background="@color/colorDark"
         android:src="@drawable/lissandra" />
 
     <View
@@ -28,8 +28,9 @@
             android:id="@+id/questionID"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:gravity="center"
+            android:layout_gravity="center"
             android:paddingTop="10dp"
+            android:gravity="center"
             android:text=""
             android:textSize="@dimen/textQuestionSize" />
 
@@ -48,19 +49,19 @@
                 android:id="@+id/answer1"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_"  />
+                android:text="@string/_" />
 
             <RadioButton
                 android:id="@+id/answer2"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_"  />
+                android:text="@string/_" />
 
             <RadioButton
                 android:id="@+id/answer3"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
-                android:text="@string/_"  />
+                android:text="@string/_" />
         </RadioGroup>
 
         <LinearLayout

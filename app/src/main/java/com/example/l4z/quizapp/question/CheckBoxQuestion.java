@@ -1,6 +1,5 @@
 package com.example.l4z.quizapp.question;
 
-
 import java.util.ArrayList;
 import java.util.List;
 

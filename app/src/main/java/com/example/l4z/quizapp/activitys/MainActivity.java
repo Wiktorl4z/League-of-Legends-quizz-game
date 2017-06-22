@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxQuestion.addSelection("Xin Zao");
         FAKE_CHAMPIONS_QUESTION.add(checkBoxQuestion);
 
-        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.annie, "What's the name of the champion?", "annie");
+        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.annie, "What's the name of the champion?", "Annie");
         FAKE_CHAMPIONS_QUESTION.add(entryQuestion);
     }
 
@@ -234,7 +234,7 @@ public class MainActivity extends AppCompatActivity {
         questions.addSelection("Cleanse");
         FAKE_SPELLS_QUESTION.add(questions);
 
-        CheckBoxQuestion checkBoxQuestion = new CheckBoxQuestion(R.drawable.aram, "Which spells you can use on ARAM", "Flash", "Ghost", "Mark");
+        CheckBoxQuestion checkBoxQuestion = new CheckBoxQuestion(R.drawable.aram, "Which spells can you use on ARAM?", "Flash", "Ghost", "Mark");
         checkBoxQuestion.addSelection("Flash");
         checkBoxQuestion.addSelection("Teleport");
         checkBoxQuestion.addSelection("Ghost");
