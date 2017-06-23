@@ -2,4 +2,4 @@
 
 Task for Udacity
 
-Application here: https://www.youtube.com/watch?v=CLRzjCjAFWk&t=2s
+Application here: https://www.youtube.com/watch?v=CLRzjCjAFWk&t
