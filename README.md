@@ -1,2 +1,5 @@
 # League-of-Legends-quizz-game
-Simple quiz app 
+
+Task for Udacity
+
+Application here: https://www.youtube.com/watch?v=CLRzjCjAFWk&t=2s
