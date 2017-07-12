@@ -21,11 +21,11 @@ import static com.example.l4z.quizapp.activitys.MainActivity.QUESTIONS_INTENT;
 
 public class FinalScreenActivity extends AppCompatActivity {
 
-    TextView pointsGained, textView;
-    ImageView email, imageView;
-    CheckBox checkBox;
-    Button playAgainButton;
-    String feedback, userName;
+    private TextView pointsGained, textView;
+    private ImageView email, imageView;
+    private CheckBox checkBox;
+    private Button playAgainButton;
+    private String feedback, userName;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

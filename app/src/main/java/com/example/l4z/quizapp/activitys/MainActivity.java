@@ -97,7 +97,7 @@ public class MainActivity extends AppCompatActivity {
         checkBoxQuestion.addSelection("Xin Zao");
         FAKE_CHAMPIONS_QUESTION.add(checkBoxQuestion);
 
-        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.annie, "What's the name of the champion?", "Annie");
+        EntryQuestion entryQuestion = new EntryQuestion(R.drawable.annie, "What's the name of the champion?", "annie");
         FAKE_CHAMPIONS_QUESTION.add(entryQuestion);
     }
 

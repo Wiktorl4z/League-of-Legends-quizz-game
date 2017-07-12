@@ -27,7 +27,6 @@ import java.util.List;
 public class QuestionFragment extends Fragment {
 
     private static final String questionKey = "question";
-
     private Question question;
     private TextView mQuestion;
     private RadioGroup mRadioGroup;
@@ -37,7 +36,6 @@ public class QuestionFragment extends Fragment {
     private boolean lastQuestion;
     private CheckBox checkbox1, checkbox2, checkbox3, checkbox4;
     private EditText editText;
-
     public void setQuestion(Question question) {
         this.question = question;
     }
@@ -65,14 +63,11 @@ public class QuestionFragment extends Fragment {
         mRadioButton2 = (RadioButton) rootView.findViewById(R.id.answer2);
         mRadioButton3 = (RadioButton) rootView.findViewById(R.id.answer3);
         mImageView = (ImageView) rootView.findViewById(R.id.imageView);
-
         checkbox1 = (CheckBox) rootView.findViewById(R.id.checkbox1);
         checkbox2 = (CheckBox) rootView.findViewById(R.id.checkbox2);
         checkbox3 = (CheckBox) rootView.findViewById(R.id.checkbox3);
         checkbox4 = (CheckBox) rootView.findViewById(R.id.checkbox4);
-
         editText = (EditText) rootView.findViewById(R.id.edit_text_entry);
-
         mButtonAnswer.setOnClickListener(new OnClickListener() {
             @Override
             public void onClick(View v) {

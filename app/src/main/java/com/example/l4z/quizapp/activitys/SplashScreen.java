@@ -1,6 +1,5 @@
 package com.example.l4z.quizapp.activitys;
 
-
 import android.app.Activity;
 import android.content.Intent;
 import android.os.Bundle;

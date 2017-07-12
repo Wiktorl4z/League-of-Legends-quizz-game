@@ -1,7 +1,5 @@
 package com.example.l4z.quizapp.question;
 
-import android.content.Context;
-
 import java.util.ArrayList;
 import java.util.List;
 
@@ -13,7 +11,6 @@ public class RadioButtonQuestion extends Question {
         super(intImage, mProblem, correctAnswer);
         selection = new ArrayList<>();
     }
-
 
     public void addSelection(String selection2) {
         selection.add(selection2);
@@ -30,6 +27,6 @@ public class RadioButtonQuestion extends Question {
 
     @Override
     public String getAnswer(int i) {
-        return selection.get(i-1);
+        return selection.get(i - 1);
     }
 }
