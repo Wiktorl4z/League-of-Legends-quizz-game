@@ -3,10 +3,11 @@
     package="com.example.l4z.quizapp">
 
     <application
-    android:allowBackup="true"
-    android:icon="@mipmap/ic_launcher"
-    android:supportsRtl="true"
-    android:theme="@style/AppTheme">
+        android:allowBackup="true"
+        android:icon="@drawable/league_icon"
+        android:label="LoLQuizz"
+        android:supportsRtl="true"
+        android:theme="@style/AppTheme">
         <activity android:name=".activitys.SplashScreen">
             <intent-filter>
                 <action android:name="android.intent.action.MAIN" />
@@ -17,7 +18,5 @@
         <activity android:name=".activitys.MainMenu" />
         <activity android:name=".activitys.MainActivity" />
         <activity android:name=".activitys.FinalScreenActivity" />
-
-
     </application>
 </manifest>
